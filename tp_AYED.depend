@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1632088278 source:c:\users\geraldine\desktop\borrarcode\tp_ayed\main.cpp
+	<iostream>
+	"Vino.h"
+
+1632088188 c:\users\geraldine\desktop\borrarcode\tp_ayed\vino.h
+
+1632075472 source:c:\users\geraldine\desktop\borrarcode\tp_ayed\vino.cpp
+	<iostream>
+	<stdlib.h>
+	"Vino.h"
+
+1633404531 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\lista.cpp
+	"lista.h"
+	"Vino.h"
+	<fstream>
+	<iostream>
+
+1633404520 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\lista.h
+	<sstream>
+
+1633404593 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\vino.h
+	<sstream>
+
+1633404627 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\vino.cpp
+	<iostream>
+	<stdlib.h>
+	"Vino.h"
+
+1633404920 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\main.cpp
+	<iostream>
+	"Vino.h"
+	"lista.h"
+
