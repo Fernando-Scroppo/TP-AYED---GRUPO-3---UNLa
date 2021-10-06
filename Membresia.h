@@ -8,7 +8,6 @@ int mes_de_la_seleccion;
 int año_seleccion;
 array vinos[5];
 
-
 };
 
 

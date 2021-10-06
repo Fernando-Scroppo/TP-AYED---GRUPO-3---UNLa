@@ -4,8 +4,6 @@
 
 using namespace std;
 
-
-
 /******************************************************************************/
 /* Implementación de Primitivas */
 /*------------------------------*/
@@ -15,7 +13,6 @@ Vino* crearVinoVacio(Vino *vino) {
     vino = new Vino();
     return vino;
 }
-
 
 /*----------------------------------------------------------------------------*/
 Vino* crearVino(Vino *vino, int idVino, string etiqueta,string bodega,string segmento_del_vino,string varietal, int anioCosecha,string terroir) {
@@ -28,13 +25,6 @@ Vino* crearVino(Vino *vino, int idVino, string etiqueta,string bodega,string seg
     setAnioCosecha(vino,anioCosecha);
     setTerroir(vino,terroir);
     return vino;
-    /*vino->idvino = idVino;
-    vino->etiqueta = etiqueta;
-    vino->bodega = bodega;
-    vino->segmento_del_vino = segmento_del_vino;
-    vino->varietal = varietal;
-    vino->anioCosecha = anioCosecha;
-    vino->terroir = terroir;*/
 }
 
 

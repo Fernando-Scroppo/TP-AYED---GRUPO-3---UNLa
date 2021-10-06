@@ -19,7 +19,7 @@ if(actual == NULL){
     cout<<"La lista esta vacia"<<endl;
 }
 //Generamos la cabecera de la tabla
-cout<<"|  ID  |"<<"  ETIQUETA  |"<<"  BODEGA  |"<<"  SEGMENTO DEL VINO  |"<<"  VARIETAL  |"<<"  ANIO DE COSECHA  |"<<"  TERROIR  |"<<endl;
+cout<<"|ID|"<<"ETIQUETA|"<<"BODEGA|"<<"SEGMENTO DEL VINO|"<<"VARIETAL|"<<"ANIO DE COSECHA|"<<"TERROIR|"<<endl;
 while(actual != NULL)
 
     {   //CASTEO EL DATO A TIPO VINO, PARA OBTENER LA INFORMACION
@@ -37,12 +37,14 @@ string removerEspacios(string cadena){
    string contenido="";
 
    for(int i= 0; i<cadena.length();i++){
-                //El codigo 32 es para los espacios.
+                //El codigo 32 es para los espacios. 32 == ""
                 if(cadena.at(i)==32){
+                     //Se agrega los espacios entre medio de la palabra
                     if(i>0&&i<(cadena.length()-1)&&cadena.at(i-1)!=32 && cadena.at(i+1)!=32){
                         contenido += cadena.at(i);
                     }
                 } else{
+                        //Agrego la letra a la palabra.
                        contenido += cadena.at(i);
                 }
             }
@@ -83,11 +85,11 @@ Nodo* cargarCatalogoDeVinos(Nodo *lista, string nombreFile){
                 else{
 
                     atributo=removerEspacios(contenido);
-                    //Cargamos los atributos de los vinos, obtenidos del txt.
+                    //Cargamos los atributos de los vinos, obtenidos del txt en las variables.
                     switch(contador){
 
                     case 0:
-                        idVino = stoi(atributo, nullptr, 10);
+                        idVino = stoi(atributo, nullptr, 10); //stoi transforma de String a INT.
                         break;
                     case 1:
                         etiqueta = atributo;
@@ -113,6 +115,7 @@ Nodo* cargarCatalogoDeVinos(Nodo *lista, string nombreFile){
              terroir = removerEspacios(contenido);
              contenido="";
              atributo="";
+             //Creo el vino
              Vino* vino = crearVino(vino,idVino,etiqueta,bodega,segmento_del_vino,varietal,anioCosecha,terroir);
              insertarNodo(lista,vino);
 
@@ -129,6 +132,7 @@ Nodo* crearLista(){
 
 void insertarNodo(Nodo *&lista,void *n){
 
+    //Creo un nuevo nodo, y le asigno los datos del vino.
     Nodo *nuevo_nodo = new Nodo();
     nuevo_nodo->dato = n;
 
@@ -136,7 +140,6 @@ void insertarNodo(Nodo *&lista,void *n){
     Nodo *aux2;
 
     while(aux1 != NULL){
-
         aux2 = aux1;
         aux1 = aux1->siguiente;
     }
@@ -150,6 +153,7 @@ void insertarNodo(Nodo *&lista,void *n){
 
     nuevo_nodo->siguiente = aux1;
 
+    //YOUTUBE: https://www.youtube.com/watch?v=cPcDuIUqEO4&t=882s
 }
 
 void eliminarNodo(Nodo *&lista, int indiceP){

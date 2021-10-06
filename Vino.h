@@ -4,15 +4,13 @@
 using namespace std;
 
 struct Vino{
-
-int idVino;
-string etiqueta;
-string bodega ;
-string segmento_del_vino;
-string varietal;
-int anioCosecha;
-string terroir;
-
+    int idVino;
+    string etiqueta;
+    string bodega ;
+    string segmento_del_vino;
+    string varietal;
+    int anioCosecha;
+    string terroir;
 };
 
 /******************************************************************************/
