@@ -80,9 +80,22 @@ void eliminarNodo(Nodo *&lista, int indiceP);
 
 Nodo* cargarCatalogoDeVinos(Nodo *lista,string nombreFile);
 
+
 Nodo* contarVinos(Nodo *listaMembresia,Nodo *listaDeVinos);
 
+//----------------------------------------------------------------------------------------------
 
+Nodo* cargarCatalogoDeClientes(Nodo *lista,string nombreFile);
+
+/*
+  PRE : La lista tiene que estar creada y con por lo menos un nodo cargado.
+  POST: Se muestra la lista de Clientes
+
+[retorno de la funcion = No tiene retorno]
+[nombre de la funcion = mostrarListaDeClientes]
+[datos que necesita mi funcion = Una lista que contenga una estructura del tipo Cliente])
+*/
+void mostrarListaDeClientes(Nodo *lista);
 
 
 #endif // LISTAVOID_H_INCLUDED
