@@ -1,5 +1,6 @@
 #include "lista.h"
 #include "Vino.h"
+#include "Cliente.h"
 #include <fstream>
 #include <iostream>
 
@@ -201,4 +202,97 @@ void vaciarLista( Nodo *& lista){
     n = aux->dato;
     lista = aux->siguiente;
     delete aux;
+}
+
+//-----------------------------------------------------------------------------------------
+
+// Clientes
+
+Nodo* cargarCatalogoDeClientes(Nodo *lista, string nombreFile){
+
+     //Variables del Cliente
+    int id;
+    string nombreYapellido;
+    string direccion ;
+    int edad;
+
+
+    string filename(nombreFile);
+    string contenido;
+    string line;
+    int contador = 0;
+    string atributo;
+
+    ifstream input_file(filename);
+    if (!input_file.is_open()) {
+        cerr << "Could not open the file - '"
+             << filename << "'" << endl;
+    }
+
+
+    //Como levanta los datos, con el indice.
+    while (getline(input_file, line,';')){
+            for(int i= 0; i<line.length();i++){
+                if( line.at(i)!= '-'){
+                    contenido += line.at(i);
+                }
+                else{
+
+                    atributo=removerEspacios(contenido);
+                    //Cargamos los atributos de los Clientes, obtenidos del txt en las variables.
+                    switch(contador){
+
+                    case 0:
+                        id = stoi(atributo, nullptr, 10); //stoi transforma de String a INT.
+                        break;
+                    case 1:
+                        nombreYapellido = atributo;
+                        break;
+                    case 2:
+                        direccion = atributo;
+                        break;
+                    case 3:
+                        edad = stoi(atributo, nullptr, 10);
+                        break;
+                    }
+                    contador++;
+                    contenido="";
+                }
+            }
+
+             contador = 0;
+             //edad = removerEspacios(contenido);
+             contenido="";
+             atributo="";
+             //Creo el Cliente
+             Cliente* cliente = crearCliente(cliente,id,nombreYapellido,direccion,edad);
+             insertarNodo(lista,cliente);
+
+    }
+    input_file.close();
+    return lista;
+}
+
+void mostrarListaDeClientes(Nodo *lista){
+
+    Cliente* cliente;
+    cliente = crearClienteVacio(cliente);
+    Nodo *actual = new Nodo();
+    actual = lista;
+
+if(actual == NULL){
+    cout<<"La lista esta vacia"<<endl;
+}
+//Generamos la cabecera de la tabla
+cout<<"|ID|"<<"NOMBRE Y APELLIDO|"<<"DIRECCION|"<<"EDAD|"<<endl;
+while(actual != NULL)
+
+    {   //CASTEO EL DATO A TIPO CLIENTE, PARA OBTENER LA INFORMACION
+        cliente = (Cliente*)actual->dato;
+        cout<<"|"<<getIdCliente(cliente)<<"|"<<getNombreYapellido(cliente)<<"|"<<getDireccion(cliente)<<"|"<<getEdad(cliente)<<"|"<<endl;
+        actual = actual->siguiente;
+    }
+
+cout<<endl;
+
 }
