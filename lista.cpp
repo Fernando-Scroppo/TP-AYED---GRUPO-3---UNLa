@@ -202,3 +202,36 @@ void vaciarLista( Nodo *& lista){
     lista = aux->siguiente;
     delete aux;
 }
+
+Nodo* cargarContadorDeVinos( Nodo *listaDeVinos){
+
+    Nodo *listaDeVinosAux = new Nodo();
+
+    Nodo *listaNumeroVinos = new Nodo();
+
+    while(listaDeVinos != NULL){
+           listaDeVinosAux = listaDeVinos;
+           Vino* vino = (Vino*)listaDeVinosAux->dato;
+           Contador* numeroVino = crearContador(numeroVino,getIdVino(vino));
+           insertarNodo(listaNumeroVinos,numeroVino);
+
+           listaDeVinos = listaDeVinos->siguiente;
+    }
+
+}
+
+NodoContador* contarVinos(Nodo *listaMembresia,Nodo *listaDeVinos){
+
+    NodoContador *listanNumeroDeVinos = new NodoContador();
+    listanNumeroDeVinos = NULL;
+
+    while(listaMembresia != NULL){
+
+
+
+    }
+
+
+
+
+}

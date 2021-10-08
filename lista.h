@@ -37,7 +37,7 @@ void insertarNodo(Nodo *&lista,void *n);
 
 /*
   PRE : La lista tiene que estar creada y con por lo menos un nodo cargado.
-  POST: Se muestra la lista de circulos
+  POST: Se muestra la lista de vinos.
 
 [retorno de la funcion = No tiene retorno]
 [nombre de la funcion = mostrarListaDeVinos]
@@ -79,6 +79,10 @@ void eliminarNodo(Nodo *&lista, int indiceP);
 */
 
 Nodo* cargarCatalogoDeVinos(Nodo *lista,string nombreFile);
+
+Nodo* contarVinos(Nodo *listaMembresia,Nodo *listaDeVinos);
+
+
 
 
 #endif // LISTAVOID_H_INCLUDED

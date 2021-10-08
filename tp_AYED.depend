@@ -16,19 +16,24 @@
 	<fstream>
 	<iostream>
 
-1633404520 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\lista.h
+1633732227 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\lista.h
 	<sstream>
 
-1633404593 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\vino.h
+1633477757 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\vino.h
 	<sstream>
 
-1633404627 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\vino.cpp
+1633478884 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\vino.cpp
 	<iostream>
 	<stdlib.h>
 	"Vino.h"
 
-1633404920 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\main.cpp
+1633480925 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\main.cpp
 	<iostream>
 	"Vino.h"
 	"lista.h"
+
+1633732154 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\contador.cpp
+	"Contador.h"
+
+1633732170 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\contador.h
 
