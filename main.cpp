@@ -2,6 +2,7 @@
 #include "Vino.h"
 #include "Cliente.h"
 #include "lista.h"
+#include "Membresia.h"
 using namespace std;
 
 int main()

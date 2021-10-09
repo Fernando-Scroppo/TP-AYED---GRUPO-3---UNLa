@@ -50,11 +50,11 @@ void setMes(Membresia *membresia, int mes) {
 
 /*----------------------------------------------------------------------------*/
 int getAnio(Membresia *membresia) {
-    return membresia->año_seleccion;
+    return membresia->anio_seleccion;
 }
 
 void setAnio(Membresia *membresia, int anio) {
-    membresia->año_seleccion = anio;
+    membresia->anio_seleccion = anio;
 }
 
 /*----------------------------------------------------------------------------*/

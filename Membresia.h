@@ -5,7 +5,7 @@ struct Membresia{
 
 int idUsuario;
 int mes_de_la_seleccion;
-int año_seleccion;
+int anio_seleccion;
 array vinos[5];
 
 };
@@ -92,6 +92,6 @@ void setArray(Membresia *membresia, array vinos);
 string getArray(Membresia *membresia);
 
 /*----------------------------------------------------------------------------*/
-/*
+
 
 #endif // MEMBRESIA_H_INCLUDED
