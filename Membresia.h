@@ -82,14 +82,16 @@ int getAnio(Membresia *membresia);
   pre: la membresia debe haberse creado y no destruido.
   post: asigna los valores de los vinos seleccionados por el usuario .
 */
-void setArrayVinos(Membresia *membresia, int vinos[]);
+void setArrayVinos(Membresia *membresia, int vinosP[]);
 
 /*----------------------------------------------------------------------------*/
 /*
   pre: la membresia debe haberse creado y no destruido.
   post: devuelve los vinos seleciconados por el usuario.
 */
-int getArrayVinos(Membresia *membresia);
+int* getArrayVinos(Membresia *membresia);
+
+
 
 /*----------------------------------------------------------------------------*/
 

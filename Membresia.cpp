@@ -58,12 +58,19 @@ void setAnio(Membresia *membresia, int anio) {
 }
 
 /*----------------------------------------------------------------------------*/
-void setArrayVinos(Membresia *membresia, int vinos[]) {
-    membresia->vinos[] = vinos[];
+//Pasar la direccion de memoria vinos, puntero integer.
+void setArrayVinos(Membresia *membresia, int vinosP[]) {
+
+    for(int i = 0; i<5 ; i++){
+        membresia->vinos[i] = vinosP[i];
+    }
+
+    //aplicar uno a uno al for.
+    //Iterator
 }
 
 /*----------------------------------------------------------------------------*/
-int getArrayVinos(Membresia *membresia) {
+int* getArrayVinos(Membresia *membresia) {
     return membresia->vinos;
 }
 
