@@ -94,11 +94,12 @@
 1633736713 d:\unla\ayed\tp-ayed---grupo-3---unla\cliente.h
 	<sstream>
 
-1633736713 source:d:\unla\ayed\tp-ayed---grupo-3---unla\main.cpp
+1633740008 source:d:\unla\ayed\tp-ayed---grupo-3---unla\main.cpp
 	<iostream>
 	"Vino.h"
 	"Cliente.h"
 	"lista.h"
+	"Membresia.h"
 
 1633736713 source:d:\unla\ayed\tp-ayed---grupo-3---unla\vino.cpp
 	<iostream>
@@ -109,4 +110,6 @@
 	"Cliente.h"
 	<iostream>
 	<stdlib.h>
+
+1633741322 d:\unla\ayed\tp-ayed---grupo-3---unla\membresia.h
 

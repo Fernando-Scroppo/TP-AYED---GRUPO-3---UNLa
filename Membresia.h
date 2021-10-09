@@ -6,7 +6,7 @@ struct Membresia{
 int idUsuario;
 int mes_de_la_seleccion;
 int anio_seleccion;
-array vinos[5];
+int vinos[5];
 
 };
 
@@ -26,7 +26,7 @@ Membresia* crearMembresiaVacia(Membresia *membresia);
   post: deja la instacia de la lista para ser usado. Los parametros se aplica al tda (membresia).
 */
 
-Membresia* crearMembresia(Membresia *membresia,int idUsuario,int mes,int anio,array vinos[5]);
+Membresia* crearMembresia(Membresia *membresia,int idUsuario,int mes,int anio,int vinos[]);
 /*----------------------------------------------------------------------------*/
 /*
   pre: la membresia debe haberse creado y no destruido.
@@ -60,7 +60,7 @@ void setMes(Membresia *membresia, int mes);
   pre: la membresia debe haberse creado y no destruido.
   post: devuelve el nombre.
 */
-string getMes(Membresia *membresia);
+int getMes(Membresia *membresia);
 
 /*----------------------------------------------------------------------------*/
 /*
@@ -82,14 +82,14 @@ int getAnio(Membresia *membresia);
   pre: la membresia debe haberse creado y no destruido.
   post: asigna los valores de los vinos seleccionados por el usuario .
 */
-void setArray(Membresia *membresia, array vinos);
+void setArrayVinos(Membresia *membresia, int vinos[]);
 
 /*----------------------------------------------------------------------------*/
 /*
   pre: la membresia debe haberse creado y no destruido.
   post: devuelve los vinos seleciconados por el usuario.
 */
-string getArray(Membresia *membresia);
+int getArrayVinos(Membresia *membresia);
 
 /*----------------------------------------------------------------------------*/
 

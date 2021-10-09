@@ -15,7 +15,7 @@ Membresia* crearMembresiaVacia(Membresia *membresia) {
 }
 
 /*----------------------------------------------------------------------------*/
-Membresia* crearMembresia(Membresia *membresia, int idUsuario,int mes,int anio,array vinos[5]) {
+Membresia* crearMembresia(Membresia *membresia, int idUsuario,int mes,int anio,int vinos[]) {
     membresia = new Membresia();
     setIdUsuario(membresia,idUsuario);
     setMes(membresia,mes);
@@ -32,7 +32,7 @@ void destruirMembresia(Membresia *membresia) {
 /*----------------------------------------------------------------------------*/
 void setIdUsuario(Membresia *membresia, int idUsuario) {
     membresia->idUsuario = idUsuario;
-
+}
 /*----------------------------------------------------------------------------*/
 int getIdUsuario(Membresia *membresia) {
     return membresia->idUsuario;
@@ -58,12 +58,12 @@ void setAnio(Membresia *membresia, int anio) {
 }
 
 /*----------------------------------------------------------------------------*/
-void setArray(Membresia *membresia, array vinos) {
-    membresia->vinos = vinos;
+void setArrayVinos(Membresia *membresia, int vinos[]) {
+    membresia->vinos[] = vinos[];
 }
 
 /*----------------------------------------------------------------------------*/
-array getArray(Membresia *membresia) {
+int getArrayVinos(Membresia *membresia) {
     return membresia->vinos;
 }
 
