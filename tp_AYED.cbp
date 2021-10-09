@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Cliente.cpp" />
 		<Unit filename="Cliente.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -43,6 +44,7 @@
 		<Unit filename="ListaVino.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="Membresia.cpp" />
 		<Unit filename="Membresia.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
