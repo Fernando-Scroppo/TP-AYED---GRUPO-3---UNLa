@@ -7,13 +7,17 @@ using namespace std;
 
 int main()
 {
+
+    system("color 0b");
     //Inicializo las listas
     Nodo *listaDeVinos = crearLista();
     Nodo *listaDeClientes = crearLista();
+    Nodo *listaDeMembresia= crearLista();
 
     //Cargo la lista con el catalogo de vinos.
     listaDeVinos = cargarCatalogoDeVinos(listaDeVinos,"catalos_test.txt");
     listaDeClientes= cargarCatalogoDeClientes(listaDeClientes,"usuarios_test.txt");
+    listaDeMembresia= cargarCatalogoDeMembresia(listaDeMembresia,"elecion_test.txt");
     int opcion;
 
     do{
@@ -23,8 +27,10 @@ int main()
         cout<<"3. Ranking por bodegas elejidas en el ultimo año"<<endl;
         cout<<"4. Mostrar la lista de Vinos cargada"<<endl;
         cout<<"5. Mostrar la lista de Clientes cargada"<<endl;
+        cout<<"6. Mostrar la lista de Membresia cargada"<<endl;
         cout<<"0. Salir del programa"<<endl;
         cin>>opcion;
+
 
         switch(opcion){
 
@@ -36,6 +42,12 @@ int main()
 
         case 5:
             mostrarListaDeClientes(listaDeClientes);
+            system("pause");
+            break;
+
+
+        case 6:
+            mostrarListaDeMembresia(listaDeMembresia);
             system("pause");
             break;
         }

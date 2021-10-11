@@ -2,6 +2,7 @@
 #include "Vino.h"
 #include "Cliente.h"
 #include "Contador.h"
+#include "Membresia.h"
 #include <fstream>
 #include <iostream>
 
@@ -320,6 +321,124 @@ while(actual != NULL)
     {   //CASTEO EL DATO A TIPO CLIENTE, PARA OBTENER LA INFORMACION
         cliente = (Cliente*)actual->dato;
         cout<<"|"<<getIdCliente(cliente)<<"|"<<getNombreYapellido(cliente)<<"|"<<getDireccion(cliente)<<"|"<<getEdad(cliente)<<"|"<<endl;
+        actual = actual->siguiente;
+    }
+
+cout<<endl;
+
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+
+//Membresia
+
+Nodo* cargarCatalogoDeMembresia(Nodo *lista, string nombreFile){
+
+     //Variables de Membresia
+    int idUsuario;
+    int mes_de_la_seleccion;
+    int anio_seleccion ;
+    int vinos[5];
+
+
+    string filename(nombreFile);
+    string contenido;
+    string line;
+    int contador = 0;
+    string atributo;
+
+    ifstream input_file(filename);
+    if (!input_file.is_open()) {
+        cerr << "Could not open the file - '"
+             << filename << "'" << endl;
+    }
+
+
+    //Como levanta los datos, con el indice.
+    while (getline(input_file, line,';')){
+            for(int i= 0; i<line.length();i++){
+                if( line.at(i)!= '-'){
+                    contenido += line.at(i);
+                }
+                else{
+
+                    atributo=removerEspacios(contenido);
+                    //Cargamos los atributos del TDA Membresia, obtenidos del txt en las variables.
+                    switch(contador){
+
+                    case 0:
+                        idUsuario = stoi(atributo, nullptr, 10); //stoi transforma de String a INT.
+                        break;
+                    case 1:
+                        mes_de_la_seleccion = stoi(atributo, nullptr, 10);
+                        break;
+                    case 2:
+                        anio_seleccion = stoi(atributo, nullptr, 10);
+                        break;
+
+                    case 3:
+                        vinos[0] = stoi(atributo, nullptr, 10);
+                        break;
+
+                    case 4:
+                        vinos[1]= stoi(atributo, nullptr, 10);
+                        break;
+
+                    case 5:
+                        vinos[2]= stoi(atributo, nullptr, 10);
+                        break;
+
+                    case 6:
+                        vinos[3]= stoi(atributo, nullptr, 10);
+                        break;
+
+                    case 7:
+                        vinos[4]= stoi(atributo, nullptr, 10);
+                        break;
+
+                    }
+
+
+                    contador++;
+                    contenido="";
+
+                }
+
+            }
+             contador=0;
+             vinos[5]= stoi(removerEspacios(contenido));
+
+
+             contenido="";
+             atributo="";
+
+
+             //Creo la Membresia
+             Membresia *membresia = crearMembresia(membresia,idUsuario,mes_de_la_seleccion,anio_seleccion,vinos);
+             insertarNodo(lista,membresia);
+
+    }
+    input_file.close();
+    return lista;
+}
+
+void mostrarListaDeMembresia(Nodo *lista){
+
+    Membresia* membresia;
+    membresia = crearMembresiaVacia(membresia);
+    Nodo *actual = new Nodo();
+    actual = lista;
+
+if(actual == NULL){
+    cout<<"La lista esta vacia"<<endl;
+}
+//Generamos la cabecera de la tabla
+cout<<"|ID|"<<"MES SELECCION|"<<"ANIO DE LA SELECCION|"<<"VINO ELEGIDO|"<<endl;
+while(actual != NULL)
+
+    {   //CASTEO EL DATO A TIPO MEMBRESIA, PARA OBTENER LA INFORMACION
+        membresia = (Membresia*)actual->dato;
+        cout<<"\n |"<<getIdUsuario(membresia)<<"|"<<getMes(membresia)<<"|"<<getAnio(membresia)<<"|\n"<<getArrayVinos(membresia)<<"|"<<endl;
         actual = actual->siguiente;
     }
 
