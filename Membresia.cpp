@@ -65,13 +65,13 @@ void setArrayVinos(Membresia *membresia, int vinosP[]) {
         membresia->vinos[i] = vinosP[i];
     }
 
-    //aplicar uno a uno al for.
-    //Iterator
 }
 
 /*----------------------------------------------------------------------------*/
 int* getArrayVinos(Membresia *membresia) {
     return membresia->vinos;
+    //https://www.youtube.com/watch?v=rxAUwddWfQk
+    //como tomar  el puntero que devuelve.
 }
 
 /*----------------------------------------------------------------------------*/

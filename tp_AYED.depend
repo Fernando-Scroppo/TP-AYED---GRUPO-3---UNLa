@@ -121,12 +121,12 @@
 1633741565 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\cliente.h
 	<sstream>
 
-1633741776 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\contador.cpp
+1633927675 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\contador.cpp
 	"Contador.h"
 
 1633741776 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\contador.h
 
-1633741776 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.cpp
+1633817790 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.cpp
 	"lista.h"
 	"Vino.h"
 	"Cliente.h"
@@ -134,13 +134,13 @@
 	<fstream>
 	<iostream>
 
-1633741776 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.h
+1633917741 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.h
 	<sstream>
 
 1633741565 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\vino.h
 	<sstream>
 
-1633741776 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\main.cpp
+1633916474 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\main.cpp
 	<iostream>
 	"Vino.h"
 	"Cliente.h"
@@ -153,4 +153,9 @@
 	<iostream>
 	<stdlib.h>
 	"Vino.h"
+
+1633813924 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\membresia.cpp
+	<iostream>
+	<stdlib.h>
+	"Membresia.h"
 

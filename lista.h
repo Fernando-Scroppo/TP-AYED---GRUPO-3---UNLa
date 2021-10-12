@@ -36,6 +36,17 @@ Nodo* crearLista();
 void insertarNodo(Nodo *&lista,void *n);
 
 /*
+  PRE : La lista tiene que estar creada y cargada.
+  POST: Te devuelve el nodo, en la posicion pasada por parametro, siempre y cuando exista.
+
+[retorno de la funcion = Retorna un Nodo de la lista]
+[nombre de la funcion = obtenerNodoPorPosicion]
+[datos que necesita mi funcion = Una lista, y la posicion del Nodo que quiero obtener de esa lista])
+*/
+
+Nodo* obtenerNodoPorPosicion(Nodo *lista, int posicion);
+
+/*
   PRE : La lista tiene que estar creada y con por lo menos un nodo cargado.
   POST: Se muestra la lista de vinos.
 
@@ -80,10 +91,46 @@ void eliminarNodo(Nodo *&lista, int indiceP);
 
 Nodo* cargarCatalogoDeVinos(Nodo *lista,string nombreFile);
 
+/*---------------------------------------------------------------*/
 
-Nodo* contarVinos(Nodo *listaMembresia,Nodo *listaDeVinos);
+/*
+  PRE : La lista de vinos tiene que estar creada y con los vinos ya precargados.
+  POST: Devuelve una lista con los id de los vinos y una variable entera que permite la contabilidad de los mismos.
+
+[retorno de la funcion = Retorna la lista cargada con los contadores de vinos]
+[nombre de la funcion = cargarContadorDeVinos]
+[datos que necesita mi funcion = La lista de vinos])
+*/
+
+Nodo* InicializarContadorDeVinos( Nodo *listaDeVinos);
+//----------------------------------------------------------------------------------------------
+
+
+/*
+  PRE : La lista de contabilidad de  vinos tiene que estar creada y el id del vino tiene que existir en la misma.
+  POST: suma uno al id del vino indicado.
+
+[retorno de la funcion = No tiene retorno]
+[nombre de la funcion = sumarUnoAlIdVino]
+[datos que necesita mi funcion = La lista que tiene los contadores de los vinos, y el id del vino al cual hay que sumarle uno])
+*/
+
+void sumarUnoAlIdVino(Nodo *&listaContadorVinos, int idVino);
 
 //----------------------------------------------------------------------------------------------
+
+/*
+  PRE : La lista de vinos tiene que estar creada y el id del vino tiene que existir.
+  POST: Devuelve el Nodo donde se encuentra el vino buscado.
+
+[retorno de la funcion = Devuelve el nodo, con un dato de tipo Vino]
+[nombre de la funcion = obtenerNodoVino]
+[datos que necesita mi funcion = La lista de los vinos, y el id del vino que se va a buscar])
+*/
+
+Nodo* obtenerNodoVino(Nodo *listaVinos, int idVino);
+//----------------------------------------------------------------------------------------------
+
 
 Nodo* cargarCatalogoDeClientes(Nodo *lista,string nombreFile);
 

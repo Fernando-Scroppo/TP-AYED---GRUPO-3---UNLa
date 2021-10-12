@@ -10,10 +10,24 @@ int main()
     //Inicializo las listas
     Nodo *listaDeVinos = crearLista();
     Nodo *listaDeClientes = crearLista();
+    Nodo *listaContabilizadoraDeVinos = crearLista();
 
     //Cargo la lista con el catalogo de vinos.
     listaDeVinos = cargarCatalogoDeVinos(listaDeVinos,"catalos_test.txt");
     listaDeClientes= cargarCatalogoDeClientes(listaDeClientes,"usuarios_test.txt");
+
+    //Se carga la lista de vinos en una lista auxiliar para realizar la contabilidad
+    listaContabilizadoraDeVinos = InicializarContadorDeVinos(listaDeVinos);
+
+    /* Ejemplo para obtener una posicion.
+    Nodo *nodoObtener = obtenerNodoPorPosicion(listaDeVinos,2);
+    //Vino* vino;
+    Vino* vino = crearVinoVacio(vino);
+    vino = (Vino*)nodoObtener->dato;
+    cout<<vino->idVino<<endl;
+    system("pause");*/
+
+
     int opcion;
 
     do{
