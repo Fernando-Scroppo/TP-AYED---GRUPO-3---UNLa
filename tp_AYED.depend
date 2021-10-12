@@ -40,31 +40,34 @@
 
 1633732170 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\contador.h
 
-1633725854 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.cpp
+1633986205 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.cpp
 	"lista.h"
 	"Vino.h"
 	"Cliente.h"
+	"Contador.h"
+	"Membresia.h"
 	<fstream>
 	<iostream>
 
-1633637209 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.h
+1633889061 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.h
 	<sstream>
 
-1633629751 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\vino.h
+1633534994 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\vino.h
 	<sstream>
 
-1633636974 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\main.cpp
+1633908456 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\main.cpp
 	<iostream>
 	"Vino.h"
 	"Cliente.h"
 	"lista.h"
+	"Membresia.h"
 
-1633629751 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\vino.cpp
+1633534994 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\vino.cpp
 	<iostream>
 	<stdlib.h>
 	"Vino.h"
 
-1633728293 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\cliente.h
+1633877784 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\cliente.h
 	<sstream>
 
 1633728293 69143ed4d1a69f1aa6a8cb1e8dd5c09ef56b4
@@ -154,7 +157,23 @@
 	<stdlib.h>
 	"Vino.h"
 
+<<<<<<< HEAD
 1633813924 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\membresia.cpp
+=======
+1633877784 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\cliente.cpp
+	"Cliente.h"
+	<iostream>
+	<stdlib.h>
+
+1633877784 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contador.cpp
+	"Contador.h"
+
+1633877784 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contador.h
+
+1633986289 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\membresia.h
+
+1633986289 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\membresia.cpp
+>>>>>>> 43c9c7af22d51e05e13066216016b16b7682f566
 	<iostream>
 	<stdlib.h>
 	"Membresia.h"

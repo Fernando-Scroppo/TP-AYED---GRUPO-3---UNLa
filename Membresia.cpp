@@ -58,10 +58,10 @@ void setAnio(Membresia *membresia, int anio) {
 }
 
 /*----------------------------------------------------------------------------*/
-//Pasar la direccion de memoria vinos, puntero integer.
+//Pasar la direccion de memoria membresia, puntero integer.
 void setArrayVinos(Membresia *membresia, int vinosP[]) {
 
-    for(int i = 0; i<5 ; i++){
+    for(int i=0; i<=5 ; i++){
         membresia->vinos[i] = vinosP[i];
     }
 
@@ -69,9 +69,20 @@ void setArrayVinos(Membresia *membresia, int vinosP[]) {
 
 /*----------------------------------------------------------------------------*/
 int* getArrayVinos(Membresia *membresia) {
+<<<<<<< HEAD
     return membresia->vinos;
     //https://www.youtube.com/watch?v=rxAUwddWfQk
     //como tomar  el puntero que devuelve.
+=======
+
+    for(int i=0; i<=5 ; i++){
+       cout<<" vino: "<<i+1<<" es :"<<membresia->vinos[i]<<endl;
+       //return membresia-> &vinos[i];
+    }
+
+
+
+>>>>>>> 43c9c7af22d51e05e13066216016b16b7682f566
 }
 
 /*----------------------------------------------------------------------------*/
