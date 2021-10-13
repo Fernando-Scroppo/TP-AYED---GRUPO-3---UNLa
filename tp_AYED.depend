@@ -33,7 +33,7 @@
 	"Cliente.h"
 	"lista.h"
 
-1633480925 D
+1633741565 D
 
 1633732154 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\contador.cpp
 	"Contador.h"
@@ -129,37 +129,40 @@
 
 1633741776 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\contador.h
 
-1633817790 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.cpp
+1634083055 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.cpp
 	"lista.h"
 	"Vino.h"
 	"Cliente.h"
 	"Contador.h"
+	"Membresia.h"
 	<fstream>
 	<iostream>
 
-1633917741 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.h
+1634082045 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.h
 	<sstream>
 
 1633741565 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\vino.h
 	<sstream>
 
-1633916474 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\main.cpp
+1634082402 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\main.cpp
 	<iostream>
 	"Vino.h"
 	"Cliente.h"
 	"lista.h"
 	"Membresia.h"
 
-1633813569 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\membresia.h
+1634082045 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\membresia.h
 
 1633741565 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\vino.cpp
 	<iostream>
 	<stdlib.h>
 	"Vino.h"
 
-<<<<<<< HEAD
-1633813924 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\membresia.cpp
-=======
+1634082834 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\membresia.cpp
+	<iostream>
+	<stdlib.h>
+	"Membresia.h"
+
 1633877784 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\cliente.cpp
 	"Cliente.h"
 	<iostream>
@@ -173,7 +176,8 @@
 1633986289 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\membresia.h
 
 1633986289 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\membresia.cpp
->>>>>>> 43c9c7af22d51e05e13066216016b16b7682f566
+
+1633986289 9c7af22d51e05e13066216016b16b7682f566
 	<iostream>
 	<stdlib.h>
 	"Membresia.h"

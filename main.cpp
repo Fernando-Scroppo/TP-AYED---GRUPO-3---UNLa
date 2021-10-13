@@ -32,7 +32,7 @@ int main()
     cout<<vino->idVino<<endl;
     system("pause");*/
 
-    listaDeMembresia= cargarCatalogoDeMembresia(listaDeMembresia,"elecion_test.txt");
+    listaDeMembresia=cargarCatalogoDeMembresia(listaDeMembresia,"elecion_test.txt");
 
     int opcion;
 

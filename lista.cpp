@@ -572,13 +572,20 @@ void mostrarListaDeMembresia(Nodo *lista){
 if(actual == NULL){
     cout<<"La lista esta vacia"<<endl;
 }
+
 //Generamos la cabecera de la tabla
 cout<<"|ID|"<<"MES SELECCION|"<<"ANIO DE LA SELECCION|"<<"VINO ELEGIDO|"<<endl;
 while(actual != NULL)
 
     {   //CASTEO EL DATO A TIPO MEMBRESIA, PARA OBTENER LA INFORMACION
         membresia = (Membresia*)actual->dato;
-        cout<<"\n |"<<getIdUsuario(membresia)<<"|"<<getMes(membresia)<<"|"<<getAnio(membresia)<<"|\n"<<getArrayVinos(membresia)<<"|"<<endl;
+        cout<<"\n |"<<getIdUsuario(membresia)<<"|"<<getMes(membresia)<<"|"<<getAnio(membresia)<<"|\n"<<endl;
+
+         int* parray = getArrayVinos(membresia);
+         for(int i=0; i<=5 ; i++){
+            cout<<" El vino es: "<<(*parray++)<<endl;
+        }
+
         actual = actual->siguiente;
     }
 
