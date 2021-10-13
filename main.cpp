@@ -50,6 +50,10 @@ int main()
 
         switch(opcion){
 
+        case 1:
+            rankingDeVinos(listaDeMembresia,listaDeVinos);
+            break;
+
         case 4:
             mostrarListaDeVinos(listaDeVinos);
             system("pause");

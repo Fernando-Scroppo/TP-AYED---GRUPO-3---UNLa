@@ -69,19 +69,8 @@ void setArrayVinos(Membresia *membresia, int vinosP[]) {
 
 /*----------------------------------------------------------------------------*/
 int* getArrayVinos(Membresia *membresia) {
-
     //Retorna un puntero, que apunta al primer elemento del array para despues recorrerlo.
     return membresia->vinos;
-    //https://www.youtube.com/watch?v=rxAUwddWfQk
-    //como tomar  el puntero que devuelve.
-
-    /*
-    for(int i=0; i<=5 ; i++){
-       cout<<" vino: "<<i+1<<" es :"<<membresia->vinos[i]<<endl;
-       //return membresia-> &vinos[i];
-    }
-    */
-
 }
 
 /*----------------------------------------------------------------------------*/

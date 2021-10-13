@@ -340,39 +340,114 @@ Nodo* rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaDeVinos){
     cout<<"Indicar la cantidad de años distintos de los cuales se debe obtener los ranking anuales"<<endl;
     cin>>cantidadDeAnios;
     int *pArray = new int[cantidadDeAnios];
+    Nodo *listaDeAnios = obtenerAnios(listaDeMembresia,cantidadDeAnios);
 
     //Mientras se tengan anios para obtener el ranking se continua.
     while( vueltas < cantidadDeAnios ){
 
+        //Recorre la lista de membresia
         while(listaDeMembresia != NULL){
 
             listaMembresiaAux = listaDeMembresia;
             membresia = (Membresia*)listaMembresiaAux->dato;
             for(int i=0; i<5 ; i++){
                 if(membresia->anio_seleccion == pArray[vueltas]){
+                    //Si es el anio que estoy buscando, le sumo uno al contador del id del vino.
                     sumarUnoAlIdVino(listaContadoraDeVinos,membresia->vinos[i]);
                 }
             }
+            listaDeMembresia->siguiente;
         }
+            cout<<"Recorrio la lista"<<endl;
 
             vueltas=+1;
             //Ordenar la lista de contadora de vinos -- Chequear que ordene los contadores por cantidad.
             ordenarDescendentemente(listaContadoraDeVinos);
+
+            //Recorro la lista contador, para ver que me devuelve
+            while(listaContadoraDeVinos != NULL){
+                //Muestro la lista de contador
+                Contador* contador = new Contador();
+                contador = (Contador*)listaContadoraDeVinos->dato;
+                cout<<contador->idVino<<contador->cantidad<<endl;
+                listaContadoraDeVinos->siguiente;
+                system("pause");
+            }
+
+
             //recorrerla y obtener por id los nodos de los vinos
             //ir cargando esos nodos en una lista nueva
             cout<<"RANKING ANUAL DE VINOS CORRESPONDIENTE AL AÑO: "<<pArray[vueltas]<<endl;
             //mostrar la lista de vinos
 
     }
-
-
-
-
-
-
-
 }
 
+/*
+int* obtenerAnios(Nodo *listaMembresia, int cantidad){
+
+Membresia* membresia;
+int vueltas =0;
+int *pArray = new int[cantidad];
+pArray
+cout<<"Entro al obtener anios"<<endl;
+
+    while(listaMembresia != NULL && vueltas <cantidad){
+
+        membresia = (Membresia*)listaMembresia->dato;
+
+        for(int i=0; i<cantidad ; i++){
+                 cout<<"Array:"<<(*pArray++)<<endl;
+            if( vueltas==0 || membresia->anio_seleccion != (*pArray++) ){
+                cout<<membresia->anio_seleccion<<endl;
+                system("pause");
+                pArray[vueltas] = membresia->anio_seleccion;
+                vueltas++;
+            }
+        }
+        listaMembresia->siguiente;
+    }
+
+    cout<<"Salio del while"<<endl;
+
+    return pArray;
+}
+*/
+
+Nodo* obtenerAnios(Nodo *listaMembresia, int cantidad){
+
+Membresia* membresia;
+int vueltas =0;
+Nodo *listaDeAnios = crearLista();
+int* anio;
+cout<<"Entro al obtener anios"<<endl;
+
+    while(listaMembresia != NULL && vueltas<cantidad){
+
+        membresia = (Membresia*)listaMembresia->dato;
+
+
+        while(listaDeAnios != NULL ||vueltas == 0){
+
+                if(listaDeAnios!=NULL){
+                    cout<<listaDeAnios->dato<<endl;
+                    anio = (int*)(listaDeAnios->dato);
+                    cout<<(anio)<<endl;
+                    system("pause");
+                }
+
+            if(vueltas == 0 || (int*)(membresia->anio_seleccion) != anio){
+                insertarNodo(listaDeAnios,(int*)(membresia->anio_seleccion));
+            }
+            listaDeAnios->siguiente;
+        }
+        vueltas++;
+    }
+
+    cout<<"Salio del while"<<endl;
+
+    return listaDeAnios;
+}
 
 
 //-----------------------------------------------------------------------------------------
