@@ -18,5 +18,20 @@ struct Contador{
 Contador* crearContador(Contador *contador,int idVino);
 /*----------------------------------------------------------------------------*/
 
+/*
+  pre: el contador debe haberse creado.
+  post: Devuelve el Id del vino, que esta contabilizando.
+*/
+
+int getContadorIdVino(Contador *contador);
+
+/*----------------------------------------------------------------------------*/
+
+/*
+  pre: el contador debe haberse creado.
+  post: Devuelve la cantidad del contador.
+*/
+
+int getContadorCantidad(Contador *contador);
 
 #endif // CONTADOR_H_INCLUDED

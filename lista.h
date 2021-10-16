@@ -157,9 +157,10 @@ Nodo* cargarCatalogoDeMembresia(Nodo *lista,string nombreFile);
 */
 void mostrarListaDeMembresia(Nodo *lista);
 
-/* PRUEBA */
-/*int* obtenerAnios(Nodo *listaMembresia, int cantidad);*/
-Nodo* rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaDeVinos);
-Nodo* obtenerAnios(Nodo *listaMembresia, int cantidad);
+/*-----------------------------------------------------------------------------------------------*/
+//COLOCAR PRE Y POST----
+
+Nodo* rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos, int anio);
+
 
 #endif // LISTAVOID_H_INCLUDED

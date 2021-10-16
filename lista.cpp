@@ -176,7 +176,7 @@ Nodo* obtenerNodoVino(Nodo *listaVinos, int idVino){
     Vino* vino;
     vino = crearVinoVacio(vino);
     bool encontrado = 0;
-    while(listaVinos != NULL && encontrado != 0){
+    while(listaVinos != NULL && encontrado == 0){
 
         vino = (Vino*)listaVinos->dato;
         if(vino->idVino == idVino){
@@ -291,96 +291,98 @@ void ordenarDescendentemente(Nodo *&listaContadorVinos){
     }
 }
 
-
-
-
-
-
 void sumarUnoAlIdVino(Nodo *&listaContadorVinos, int idVino){
 
     bool encontrado = 0;
-    while (listaContadorVinos != NULL && encontrado != 0){
-        Contador* contador = (Contador*)listaContadorVinos->dato;
+    while (listaContadorVinos != NULL && encontrado == 0){
+        Contador* contador;
+        contador = (Contador*)listaContadorVinos->dato;
+        cout<<"Id del contador de vino: "<<getContadorIdVino(contador)<<endl;
+        cout<<"Id parametro: "<<idVino<<endl;
+        system("pause");
         if(contador->idVino == idVino){
             contador->cantidad =+1;
+            cout<<"Id del contador de vino A SUMAR: "<<getContadorIdVino(contador)<<endl;
+            cout<<"Cantidad del contador: "<<getContadorCantidad(contador)<<endl;
+            system("pause");
             encontrado = 1;
+            listaContadorVinos->dato = contador;
         }
-        listaContadorVinos->siguiente;
+        listaContadorVinos = listaContadorVinos->siguiente;
     }
-}
 
+}
 
 
 Nodo* InicializarContadorDeVinos( Nodo *listaDeVinos){
 
-    Nodo *listaDeVinosAux = new Nodo();
-
-    Nodo *listaNumeroVinos = new Nodo();
+    //Nodo *listaDeVinosAux = new Nodo();
+    Vino* vino = new Vino();
+    Contador* numeroVino;
+    Nodo *listaNumeroVinos = crearLista();
 
     while(listaDeVinos != NULL){
-           listaDeVinosAux = listaDeVinos;
-           Vino* vino = (Vino*)listaDeVinosAux->dato;
-           Contador* numeroVino = crearContador(numeroVino,getIdVino(vino));
+           //listaDeVinosAux = listaDeVinos;
+           vino = (Vino*)listaDeVinos->dato;
+           numeroVino = crearContador(numeroVino,getIdVino(vino));
            insertarNodo(listaNumeroVinos,numeroVino);
-
            listaDeVinos = listaDeVinos->siguiente;
     }
     return listaNumeroVinos;
 }
 
-Nodo* rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaDeVinos){
+Nodo* rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos, int anio){
 
     Membresia* membresia;
-    membresia = crearMembresiaVacia(membresia);
     Nodo *listaMembresiaAux = crearLista();
     Nodo *listarankingVinos = crearLista();
-    Nodo *listaContadoraDeVinos = InicializarContadorDeVinos(listaDeVinos);
-    int vueltas=0;
-    int cantidadDeAnios;
-    cout<<"Indicar la cantidad de años distintos de los cuales se debe obtener los ranking anuales"<<endl;
-    cin>>cantidadDeAnios;
-    int *pArray = new int[cantidadDeAnios];
-    Nodo *listaDeAnios = obtenerAnios(listaDeMembresia,cantidadDeAnios);
+    Nodo *listaContadoraDeVinos = listaContabilizadoraDeVinos;
 
-    //Mientras se tengan anios para obtener el ranking se continua.
-    while( vueltas < cantidadDeAnios ){
 
         //Recorre la lista de membresia
         while(listaDeMembresia != NULL){
-
-            listaMembresiaAux = listaDeMembresia;
-            membresia = (Membresia*)listaMembresiaAux->dato;
+            membresia = (Membresia*)listaDeMembresia->dato;
             for(int i=0; i<5 ; i++){
-                if(membresia->anio_seleccion == pArray[vueltas]){
+
+                if(getAnio(membresia) == anio){
                     //Si es el anio que estoy buscando, le sumo uno al contador del id del vino.
                     sumarUnoAlIdVino(listaContadoraDeVinos,membresia->vinos[i]);
+                    //cout<<"Le sumo al id del vino"<<membresia->vinos[i]<<endl;
                 }
             }
-            listaDeMembresia->siguiente;
+            listaDeMembresia = listaDeMembresia->siguiente;
         }
-            cout<<"Recorrio la lista"<<endl;
 
-            vueltas=+1;
+
+
+               if (listaContadoraDeVinos== NULL){
+                cout<<"eS NULA"<<endl;
+                system("PAUSE");
+            }
+
+            //AGREGAR VALIDACION: RECORRER  LA LISTA CONTADORA DE VINOS,
+            //SI ESTAN TODOS LOS CONTADORES CON CANTIDAD 0, NO EXISTE EL ANIO INGRESADO
+
             //Ordenar la lista de contadora de vinos -- Chequear que ordene los contadores por cantidad.
-            ordenarDescendentemente(listaContadoraDeVinos);
+            //ordenarDescendentemente(listaContadoraDeVinos);
 
             //Recorro la lista contador, para ver que me devuelve
             while(listaContadoraDeVinos != NULL){
                 //Muestro la lista de contador
-                Contador* contador = new Contador();
+                Contador* contador;
                 contador = (Contador*)listaContadoraDeVinos->dato;
                 cout<<contador->idVino<<contador->cantidad<<endl;
                 listaContadoraDeVinos->siguiente;
                 system("pause");
             }
 
-
+            /*
             //recorrerla y obtener por id los nodos de los vinos
             //ir cargando esos nodos en una lista nueva
-            cout<<"RANKING ANUAL DE VINOS CORRESPONDIENTE AL AÑO: "<<pArray[vueltas]<<endl;
+            cout<<"RANKING ANUAL DE VINOS CORRESPONDIENTE AL AÑO: "<<anio<<endl;
             //mostrar la lista de vinos
+            */
 
-    }
 }
 
 /*

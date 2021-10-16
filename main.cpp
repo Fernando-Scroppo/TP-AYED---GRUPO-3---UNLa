@@ -35,10 +35,11 @@ int main()
     listaDeMembresia=cargarCatalogoDeMembresia(listaDeMembresia,"elecion_test.txt");
 
     int opcion;
+    int anio;
 
     do{
         cout<<"\t.:SISTEMA DE RANKINGS:."<<endl;
-        cout<<"1. Ranking General de Vinos seleccionados en el ultimo año"<<endl;
+        cout<<"1. Ranking General de Vinos seleccionados por año"<<endl;
         cout<<"2. Ranking por bodegas elejidas en el ultimo año"<<endl;
         cout<<"3. Ranking por bodegas elejidas en el ultimo año"<<endl;
         cout<<"4. Mostrar la lista de Vinos cargada"<<endl;
@@ -51,7 +52,9 @@ int main()
         switch(opcion){
 
         case 1:
-            rankingDeVinos(listaDeMembresia,listaDeVinos);
+            cout<<"El ranking de vinos correspodiente a que año quiere obtener:"<<endl;
+            cin>>anio;
+            rankingDeVinos(listaDeMembresia,listaContabilizadoraDeVinos,anio);
             break;
 
         case 4:
