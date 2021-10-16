@@ -14,3 +14,12 @@ int getContadorIdVino(Contador *contador) {
 int getContadorCantidad(Contador *contador) {
     return contador->cantidad;
 }
+
+
+void setContadorIdVino(Contador *contador,int idVino){
+    contador->idVino = idVino;
+}
+
+void setContadorCantidad(Contador *contador, int cantidad){
+    contador->cantidad = cantidad;
+}

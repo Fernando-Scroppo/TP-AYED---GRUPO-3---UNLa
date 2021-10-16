@@ -110,12 +110,12 @@ Nodo* InicializarContadorDeVinos( Nodo *listaDeVinos);
   PRE : La lista de contabilidad de  vinos tiene que estar creada y el id del vino tiene que existir en la misma.
   POST: suma uno al id del vino indicado.
 
-[retorno de la funcion = No tiene retorno]
+[retorno de la funcion = Retorno la lista de contador de vinos, actualizada]
 [nombre de la funcion = sumarUnoAlIdVino]
 [datos que necesita mi funcion = La lista que tiene los contadores de los vinos, y el id del vino al cual hay que sumarle uno])
 */
 
-void sumarUnoAlIdVino(Nodo *&listaContadorVinos, int idVino);
+Nodo* sumarUnoAlIdVino(Nodo *&listaContadorVinos, int idVino);
 
 //----------------------------------------------------------------------------------------------
 

@@ -34,4 +34,11 @@ int getContadorIdVino(Contador *contador);
 
 int getContadorCantidad(Contador *contador);
 
+/*----------------------------------------------------------------------------*/
+
+void setContadorIdVino(Contador *contador, int idVino);
+
+void setContadorCantidad(Contador *contador, int cantidad);
+
+
 #endif // CONTADOR_H_INCLUDED

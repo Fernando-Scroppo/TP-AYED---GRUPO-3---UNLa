@@ -291,25 +291,29 @@ void ordenarDescendentemente(Nodo *&listaContadorVinos){
     }
 }
 
-void sumarUnoAlIdVino(Nodo *&listaContadorVinos, int idVino){
+Nodo* sumarUnoAlIdVino(Nodo *&listaContadorVinos, int idVino){
+    Nodo* nodo = new Nodo();
+    int cantidad;
 
     bool encontrado = 0;
     while (listaContadorVinos != NULL && encontrado == 0){
         Contador* contador;
         contador = (Contador*)listaContadorVinos->dato;
-        cout<<"Id del contador de vino: "<<getContadorIdVino(contador)<<endl;
-        cout<<"Id parametro: "<<idVino<<endl;
-        system("pause");
+
         if(contador->idVino == idVino){
-            contador->cantidad =+1;
-            cout<<"Id del contador de vino A SUMAR: "<<getContadorIdVino(contador)<<endl;
-            cout<<"Cantidad del contador: "<<getContadorCantidad(contador)<<endl;
-            system("pause");
+            contador = (Contador*)listaContadorVinos->dato;
+            setContadorCantidad(contador,getContadorCantidad(contador)+1);
+            setContadorIdVino(contador,idVino);
             encontrado = 1;
-            listaContadorVinos->dato = contador;
+            nodo->dato = contador;
+            nodo->siguiente = listaContadorVinos->siguiente;
+            listaContadorVinos = nodo;
         }
         listaContadorVinos = listaContadorVinos->siguiente;
+        contador = (Contador*)listaContadorVinos->dato;
     }
+
+    return listaContadorVinos;
 
 }
 
@@ -337,7 +341,10 @@ Nodo* rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos, 
     Nodo *listaMembresiaAux = crearLista();
     Nodo *listarankingVinos = crearLista();
     Nodo *listaContadoraDeVinos = listaContabilizadoraDeVinos;
-
+    if (listaContadoraDeVinos== NULL){
+                        cout<<"eS NULA Al inicializar"<<endl;
+                        system("PAUSE");
+                        }
 
         //Recorre la lista de membresia
         while(listaDeMembresia != NULL){
@@ -346,14 +353,13 @@ Nodo* rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos, 
 
                 if(getAnio(membresia) == anio){
                     //Si es el anio que estoy buscando, le sumo uno al contador del id del vino.
-                    sumarUnoAlIdVino(listaContadoraDeVinos,membresia->vinos[i]);
+                    listaContadoraDeVinos = sumarUnoAlIdVino(listaContadoraDeVinos,membresia->vinos[i]);
+
                     //cout<<"Le sumo al id del vino"<<membresia->vinos[i]<<endl;
                 }
             }
             listaDeMembresia = listaDeMembresia->siguiente;
         }
-
-
 
                if (listaContadoraDeVinos== NULL){
                 cout<<"eS NULA"<<endl;
