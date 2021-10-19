@@ -1,6 +1,7 @@
 #ifndef LISTAVOID_H_INCLUDED
 #define LISTAVOID_H_INCLUDED
 #include <sstream>
+#include "Vino.h"
 using namespace std;
 
 /******************************************************************************/
@@ -44,7 +45,7 @@ void insertarNodo(Nodo *&lista,void *n);
 [datos que necesita mi funcion = Una lista, y la posicion del Nodo que quiero obtener de esa lista])
 */
 
-Nodo* obtenerNodoPorPosicion(Nodo *lista, int posicion);
+Nodo* obtenerNodoPorPosicion(Nodo *nodoVino,Nodo *&lista, int posicion);
 
 /*
   PRE : La lista tiene que estar creada y con por lo menos un nodo cargado.
@@ -128,7 +129,7 @@ Nodo* sumarUnoAlIdVino(Nodo *&listaContadorVinos, int idVino);
 [datos que necesita mi funcion = La lista de los vinos, y el id del vino que se va a buscar])
 */
 
-Nodo* obtenerNodoVino(Nodo *listaVinos, int idVino);
+Vino* obtenerNodoVino(Nodo *nodoVino,Nodo *&listaVinos, int idVino);
 //----------------------------------------------------------------------------------------------
 
 
@@ -158,9 +159,30 @@ Nodo* cargarCatalogoDeMembresia(Nodo *lista,string nombreFile);
 void mostrarListaDeMembresia(Nodo *lista);
 
 /*-----------------------------------------------------------------------------------------------*/
-//COLOCAR PRE Y POST----
 
-Nodo* rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos, int anio);
+/*
+  PRE : La lista tiene que estar previamente creada.
+  POST: Ordenada la lista de Contadores, de mayor a menor basandose en la cantidad.
+
+[retorno de la funcion = No tiene retorno]
+[nombre de la funcion = insertarContadorDescendentemente]
+[datos que necesita mi funcion = Una lista vacia y una estructura de tipo Contador a agregar a la misma])
+*/
+
+void insertarContadorDescendentemente (Nodo *&listaAOrdenar, void *contador);
+
+/*-----------------------------------------------------------------------------------------------*/
+/*
+  PRE : Las lista de membresia (creada y cargada), la lista contabilizadora de vinos (creada y cargada) , la lista de vinos (creada y cargada) y el anio tiene que estar previamente
+  ingresado por el usuario.
+  POST: Devuelve el ranking de vinos de forma descendente de acuerdo al anio ingresado por el usuario.
+
+[retorno de la funcion = No tiene retorno ]
+[nombre de la funcion = rankingDeVinos]
+[datos que necesita mi funcion = lista de Membresia, lista contabilizado de Vinos, Lista de vinos y el anio ingresado por el usuario])
+*/
+
+void rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,Nodo *listaDeVinos, int anio);
 
 
 #endif // LISTAVOID_H_INCLUDED

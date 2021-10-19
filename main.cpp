@@ -36,12 +36,14 @@ int main()
 
     int opcion;
     int anio;
+    Nodo *nodoVino;
+    Vino* vino = crearVinoVacio(vino);
 
     do{
         cout<<"\t.:SISTEMA DE RANKINGS:."<<endl;
         cout<<"1. Ranking General de Vinos seleccionados por año"<<endl;
         cout<<"2. Ranking por bodegas elejidas en el ultimo año"<<endl;
-        cout<<"3. Ranking por bodegas elejidas en el ultimo año"<<endl;
+        cout<<"3. Ranking de varietales elegidos por rango etario"<<endl;
         cout<<"4. Mostrar la lista de Vinos cargada"<<endl;
         cout<<"5. Mostrar la lista de Clientes cargada"<<endl;
         cout<<"6. Mostrar la lista de Membresia cargada"<<endl;
@@ -54,7 +56,7 @@ int main()
         case 1:
             cout<<"El ranking de vinos correspodiente a que año quiere obtener:"<<endl;
             cin>>anio;
-            rankingDeVinos(listaDeMembresia,listaContabilizadoraDeVinos,anio);
+            rankingDeVinos(listaDeMembresia,listaContabilizadoraDeVinos,listaDeVinos,anio);
             break;
 
         case 4:
@@ -80,6 +82,12 @@ int main()
         system("cls");
     } while(opcion != 0);
 
+
+    //Elimino las listas
+    vaciarLista(listaDeVinos);
+    vaciarLista(listaDeClientes);
+    vaciarLista(listaContabilizadoraDeVinos);
+    vaciarLista(listaDeMembresia);
 
     return 0;
 }
