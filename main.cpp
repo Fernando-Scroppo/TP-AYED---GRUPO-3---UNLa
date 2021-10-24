@@ -24,8 +24,8 @@ int main()
     //Se carga la lista de vinos en una lista auxiliar para realizar la contabilidad
     listaContabilizadoraDeVinos = InicializarContadorDeVinos(listaDeVinos);
 
-    /* Ejemplo para obtener una posicion.
-    Nodo *nodoObtener = obtenerNodoPorPosicion(listaDeVinos,2);
+    //Ejemplo para obtener una posicion.
+    /*Nodo *nodoObtener = obtenerNodoPorPosicion(listaDeVinos,2);
     //Vino* vino;
     Vino* vino = crearVinoVacio(vino);
     vino = (Vino*)nodoObtener->dato;
@@ -36,8 +36,10 @@ int main()
 
     int opcion;
     int anio;
-    Nodo *nodoVino;
-    Vino* vino = crearVinoVacio(vino);
+    int rangoEtario;
+
+    Cliente* cli = new Cliente();
+    string atributo;
 
     do{
         cout<<"\t.:SISTEMA DE RANKINGS:."<<endl;
@@ -54,9 +56,16 @@ int main()
         switch(opcion){
 
         case 1:
-            cout<<"El ranking de vinos correspodiente a que año quiere obtener:"<<endl;
-            cin>>anio;
-            rankingDeVinos(listaDeMembresia,listaContabilizadoraDeVinos,listaDeVinos,anio);
+            rankingDeVinos(listaDeMembresia,listaContabilizadoraDeVinos,listaDeVinos);
+            break;
+
+        case 3:
+            cout<<"El ranking de varietales correspondiente a que grupo etario quiere obtener:"<<endl;
+            cout<<"1. Menores de 30 años"<<endl;
+            cout<<"2. Entre 30 y 50 años"<<endl;
+            cout<<"3. Mayores de 50 años"<<endl;
+            cin>>rangoEtario;
+            rankingDeVarietales(listaDeMembresia,listaDeVinos,listaDeClientes,rangoEtario);
             break;
 
         case 4:

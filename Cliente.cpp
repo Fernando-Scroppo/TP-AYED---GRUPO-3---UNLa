@@ -40,7 +40,11 @@ void setIdCliente(Cliente *cliente, int id) {
 int getIdCliente(Cliente *cliente) {
     return cliente->id;
 }
-
+/*
+int getIdCliente(){
+    return Cliente.id;
+}
+*/
 /*----------------------------------------------------------------------------*/
 void setNombreYapellido(Cliente *cliente, string nombreYapellido) {
     cliente->nombreYapellido = nombreYapellido;
@@ -50,6 +54,11 @@ void setNombreYapellido(Cliente *cliente, string nombreYapellido) {
 string getNombreYapellido(Cliente *cliente) {
     return cliente->nombreYapellido;
 }
+/*
+string getNombreYapellido(){
+    return clie
+}
+*/
 
 /*----------------------------------------------------------------------------*/
 void setEdad(Cliente *cliente, int edad) {

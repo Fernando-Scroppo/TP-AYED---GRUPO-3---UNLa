@@ -2,6 +2,7 @@
 #define LISTAVOID_H_INCLUDED
 #include <sstream>
 #include "Vino.h"
+#include "Cliente.h"
 using namespace std;
 
 /******************************************************************************/
@@ -45,7 +46,7 @@ void insertarNodo(Nodo *&lista,void *n);
 [datos que necesita mi funcion = Una lista, y la posicion del Nodo que quiero obtener de esa lista])
 */
 
-Nodo* obtenerNodoPorPosicion(Nodo *nodoVino,Nodo *&lista, int posicion);
+Nodo* obtenerNodoPorPosicion(Nodo *&lista, int posicion);
 
 /*
   PRE : La lista tiene que estar creada y con por lo menos un nodo cargado.
@@ -102,7 +103,6 @@ Nodo* cargarCatalogoDeVinos(Nodo *lista,string nombreFile);
 [nombre de la funcion = cargarContadorDeVinos]
 [datos que necesita mi funcion = La lista de vinos])
 */
-
 Nodo* InicializarContadorDeVinos( Nodo *listaDeVinos);
 //----------------------------------------------------------------------------------------------
 
@@ -182,7 +182,63 @@ void insertarContadorDescendentemente (Nodo *&listaAOrdenar, void *contador);
 [datos que necesita mi funcion = lista de Membresia, lista contabilizado de Vinos, Lista de vinos y el anio ingresado por el usuario])
 */
 
-void rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,Nodo *listaDeVinos, int anio);
+void rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,Nodo *listaDeVinos);
 
+/*-----------------------------------------------------------------------------------------------*/
+
+/*
+  PRE : La lista de clientes tiene que estar previamente creada y cargada con los clientes.
+  POST: Devuelve un punto de tipo Cliente, que coincida con el idCliente ingresado por parametro.
+
+[retorno de la funcion = Retorna un puntero de tipo Cliente ]
+[nombre de la funcion = obtenerClientePorId]
+[datos que necesita mi funcion = La lista de clientes y  el id del cliente a obtener])
+*/
+
+Cliente* obtenerClientePorId(Nodo *listaDeClientes,int idCliente);
+
+/*-----------------------------------------------------------------------------------------------*/
+
+/*
+  PRE :
+  - La lista de membresia, lista de vinos y lista de clientes tienen que estar previamente cargadas y creadas.
+  - El usuario tiene que elejir de que rango etario quiere obtener el ranking de varietales.
+
+  POST: Muestra por consola el ranking de varietales, segun el rango etario seleccionado.
+
+[retorno de la funcion = No tiene retorno.]
+[nombre de la funcion = rankingDeVarietales]
+[datos que necesita mi funcion :  La lista de membresia, la lista de vinos, la lista de clientes y el rango etario (1,2,3)])
+*/
+
+void rankingDeVarietales(Nodo *listaDeMembresia,Nodo *listaDeVinos,Nodo *listaDeClientes,int rangoEtario);
+
+/*----------------------------------------------------------------------------------------------------*/
+
+/*
+  PRE : Debe crearse la lista de varietales.
+  POST: Devuelve la lista de varietales actualizada, ya sea con un contador nuevo o la actualizacion de la cantidad de alguno.
+
+[retorno de la funcion = retorna el puntero head de la lista de varietales]
+[nombre de la funcion = updateContadorDeVarietales]
+[datos que necesita mi funcion = La lista de varietales, la cantidad de vinos de ese mismo ID, y el varietal del mismo vino])
+*/
+
+Nodo* updateContadorDeVarietales(Nodo *&listaDeVarietales, int cantidad, string varietal);
+
+/*-----------------------------------------------------------------------------------------------*/
+
+/*
+  PRE : Debe crearse una lista de varietales a ordenar, y un contador de tipo Varietal.
+  POST: Ordena la lista de varietales ascendentemente, segun la cantidad de los contadores.
+
+[retorno de la funcion = No tiene retorno]
+[nombre de la funcion = insertarContadorVarietalDescendentemente]
+[datos que necesita mi funcion = La lista de varietales a ordenar y un contador de tipo ContadorVarietal])
+*/
+
+void insertarContadorVarietalDescendentemente (Nodo *&listaAOrdenar, void *contador);
+
+/*-----------------------------------------------------------------------------------------------*/
 
 #endif // LISTAVOID_H_INCLUDED

@@ -38,6 +38,8 @@
 		</Unit>
 		<Unit filename="Contador.cpp" />
 		<Unit filename="Contador.h" />
+		<Unit filename="ContadorVarietal.cpp" />
+		<Unit filename="ContadorVarietal.h" />
 		<Unit filename="ListaVino.cpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

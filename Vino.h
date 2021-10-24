@@ -113,7 +113,8 @@ string getSegmento(Vino *Vino);
   pre: el vino debe haberse creado y no destruido.
   post: devuelve el nombre varieltal.
 */
-string getVarietal(Vino *Vino);
+//string getVarietal(Vino *Vino);
+string getVarietal(Vino *vino);
 
 /*----------------------------------------------------------------------------*/
 /*
@@ -127,16 +128,18 @@ void setVarietal(Vino *vino,string varietal);
   pre: el vino debe haberse creado y no destruido.
   post: devuelve el nombre terroir.
 */
-string getTerroir(Vino *Vino);
+//string getTerroir(Vino *Vino);
+
+string getTerroir(Vino *vino);
 
 /*----------------------------------------------------------------------------*/
 /*
 pre: el vino debe haberse creado y no destruido.
 post: El campo terroir pasa a contener el dato ingresado.
 */
+
 void setTerroir(Vino *vino, string terroir);
 /*----------------------------------------------------------------------------*/
-
 
 #endif // VINO_H_INCLUDED
 

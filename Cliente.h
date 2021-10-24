@@ -5,7 +5,7 @@ using namespace std;
 
 
 struct Cliente{
- int id;
+int id;
  string nombreYapellido;
  string direccion;
  int edad;
@@ -50,6 +50,7 @@ void setIdCliente(Cliente *Cliente, int id);
   post: devuelve el id.
 */
 int getIdCliente(Cliente *Cliente);
+int getIdCliente();
 
 /*----------------------------------------------------------------------------*/
 /*
@@ -57,14 +58,14 @@ int getIdCliente(Cliente *Cliente);
   post: asigna el valor de nombre a la instancia de cliente.
 */
 void setNombreYapellido(Cliente *Cliente, string nombreYapellido);
-
+void setNombreYapellido(string nombreYapellido);
 /*----------------------------------------------------------------------------*/
 /*
   pre: el cliente debe haberse creado y no destruido.
   post: devuelve el nombre y apellido.
 */
 string getNombreYapellido(Cliente *Cliente);
-
+string getNombreYapellido();
 /*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*/
@@ -80,7 +81,7 @@ void setDireccion(Cliente *Cliente, string direccion);
   post: devuelve la direccion.
 */
 string getDireccion(Cliente *Cliente);
-
+string getDireccion();
 /*----------------------------------------------------------------------------*/
 
 

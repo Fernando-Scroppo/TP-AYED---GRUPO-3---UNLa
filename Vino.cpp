@@ -82,21 +82,31 @@ void setSegmento(Vino *vino,string segmento){
 }
 
 /*----------------------------------------------------------------------------*/
+/*string getVarietal(Vino *vino) {
+    return vino->varietal;
+}*/
+
 string getVarietal(Vino *vino) {
     return vino->varietal;
 }
+
 
 /*----------------------------------------------------------------------------*/
 void setVarietal(Vino *vino, string varietal){
     vino->varietal = varietal;
 }
 /*----------------------------------------------------------------------------*/
-string getTerroir(Vino *vino) {
+/*string getTerroir(Vino *vino) {
+    return vino->terroir;
+}*/
+string getTerroir(Vino *vino){
     return vino->terroir;
 }
+
 
 /*----------------------------------------------------------------------------*/
 
 void setTerroir(Vino *vino,string terroir){
     vino->terroir = terroir;
 }
+
