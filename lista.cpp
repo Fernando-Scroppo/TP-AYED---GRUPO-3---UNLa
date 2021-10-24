@@ -827,3 +827,254 @@ while(actual != NULL)
 cout<<endl;
 
 }
+//------------------------------------------------------------------------------------------------------------
+
+//Ranking bodegas
+
+//3 PARTE DEL RANKING BODEGA
+
+Nodo* sumarUnoAlaBodega(Nodo *&listaContadorVinos,Nodo *&listaContadorBodegas,int idVino){
+    Nodo* nodo = new Nodo();
+    int cantidad;
+    bool encontrado = 0;
+    Nodo* listaContadorVino = listaContadorVinos;
+    Nodo* listaContadorBodega = listaContadorBodegas;
+
+
+
+    while (listaContadorVino != NULL && encontrado == 0){
+
+        Contador* contador = (Contador*)listaContadorVino->dato;
+       //  cout<<"llego al while "<<endl;
+        if( contador->idVino == idVino){
+                cout<<"entro al if"<<endl;
+                cout<<"ESTE ES EL QUIERO :"<<getContadorBodega(contador)<<endl;
+            contador = (Contador*)listaContadorVino->dato;
+
+            setContadorCantidad(contador,getContadorCantidad(contador)+1);
+            cout<<"llego23233?"<<getContadorCantidad(contador)<<endl;
+            setContadorIdVino(contador,idVino);
+            encontrado = 1;
+            nodo->dato = contador;
+            nodo->siguiente = listaContadorVino->siguiente;
+            listaContadorVino = nodo;
+        }
+        listaContadorVino = listaContadorVino->siguiente;
+
+    }
+    return listaContadorVino;
+}
+
+//1 PARTE DEL RANKING
+
+
+Nodo* InicializarContadorDeBodegas( Nodo *listaDeVinos){
+
+
+    //reservo un espacio en la memoria para el TDA de tipo vino
+    Vino* vino = new Vino();
+    Contador* numerobodega;
+    Nodo *listaNumeroBodegas = crearLista();
+
+    int numero = mostrarBodegasNumero( listaDeVinos);
+    string* bodegas = new string [numero];
+    int i=0;
+    bool salida =false;
+    int contador =0;
+
+
+    while(listaDeVinos != NULL){
+            salida=false;
+            contador=0;
+           //el primer dato es un vino
+           vino = (Vino*)listaDeVinos->dato;
+
+
+           if(i==0){
+            // Agrega la primer bodega
+            numerobodega = crearContador(numerobodega,getBodega(vino));
+            bodegas[i]=getBodega(vino); // lo guardo en el array para iniciar la comparacion
+
+            insertarNodo(listaNumeroBodegas,numerobodega); // inserto el primer nodo
+           }
+
+
+
+            // (El array comienza en la segunda vuelta && mientras ARRAY < cantidad de registros && salida no sea verdad)
+           while ( (i>0) && (i<numero) && salida==false){
+
+                numerobodega = crearContador(numerobodega,getBodega(vino)); //creo un contador y su bodega
+                bodegas[i]=getBodega(vino); //inserto la bodega en el array
+
+                for (int k=0 ;k<i+1; k++){ //repite  N veces ,segun lo que valga  i
+                    if(bodegas[k-1]==bodegas[i]){ //compara que no se repita
+                                                                                    //cout<<"k:"<<k<<endl;
+                                                                                    //cout<<"i"<<i<<endl;
+                                                                                    // cout <<"bodeka K : "<<bodegas[k-1]<<" BODEGA I :"<<bodegas[i]<<endl;
+                        contador= contador+1; // si se repite incrementa contador
+                        k=i+1;// finalizo el for
+
+
+                    }
+                    else{
+
+
+                    }
+
+                }
+                if(contador==0){ // sino se repitio inserta el nodo
+                    // primer nodo en la Lista de Bodegas  (ListaBodega, puntero a Contador )
+                    insertarNodo(listaNumeroBodegas,numerobodega);
+
+                }
+                salida =true;
+
+           }
+
+
+             // Recorre el siguiente nodo de la lista de vinos
+           listaDeVinos = listaDeVinos->siguiente;
+           i=i+1;
+    }
+    return listaNumeroBodegas;
+}
+
+// 2 PARTE DEL RANKING
+
+void rankingDeBodegas(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos, Nodo *listaContabilizadoraDeBodegas, Nodo *listaDeVinos, int anio){
+
+    //Inicializacion de variables.
+    Membresia* membresia;
+    Nodo *listaMembresiaAux = crearLista();
+    Nodo *listarankingBodegas = crearLista();
+    Nodo *listaContadoraDeVinos = listaContabilizadoraDeVinos; // y la lista de vinos tambien
+    Nodo *listaContadoraDeBodegas = listaContabilizadoraDeBodegas;
+    Nodo *listaCantidadDeBodegasOrdenada = crearLista(); // nose
+    Nodo *nodoVino = new Nodo(); //nuevo nodo vino
+    Nodo *listaDeVinosAux = listaDeVinos; //lista aux de vinos
+    Contador* contadorAux; // contador auxiliar para contador
+
+    Contador* contador;
+    int cantidadInicial;
+    int cantidadAnterior;
+    Vino* vino;
+    vino = crearVinoVacio(vino);
+    int posicion = 0;
+    int posicionAux;
+
+        //Recorre la lista de membresia
+        while(listaDeMembresia != NULL){
+            membresia = (Membresia*)listaDeMembresia->dato;
+            for(int i=0; i<6 ; i++){
+
+                if(getAnio(membresia) == anio){
+                    //Si es el anio que estoy buscando, le sumo uno al contador de la bodega.
+                     listaContadoraDeBodegas = sumarUnoAlaBodega(listaContadoraDeVinos ,listaContadoraDeBodegas,membresia->vinos[i]);
+                    //cout<<"Le sumo al id del vino"<<membresia->vinos[i]<<endl;
+
+                }
+
+
+            listaDeMembresia = listaDeMembresia->siguiente;
+        }
+
+
+            //AGREGAR VALIDACION: RECORRER  LA LISTA CONTADORA DE VINOS,
+            //SI ESTAN TODOS LOS CONTADORES CON CANTIDAD 0, NO EXISTE EL ANIO INGRESADO
+
+            while(listaContadoraDeBodegas != NULL){
+
+                Contador* contador = (Contador*)listaContadoraDeBodegas->dato;
+                //Inserto los contadores en orden descendente, en listaCantidadDeVinosOrdenada.
+                insertarContadorDescendentemente(listaCantidadDeBodegasOrdenada,contador);
+                listaContadoraDeBodegas = listaContadoraDeBodegas->siguiente;
+
+            }
+
+            cout<<"//-----------------------------------------------------------------------------------------------------//"<<endl;
+            cout<<".::.RANKING DE BODEGAS CORRESPONDIENTE AL ANIO : "<<anio<<".::."<<endl;
+            cout<<"POSICION|ID|"<<"BODEGA|"<<endl;
+
+            //Recorro la lista contadores de vino, ya ordenados de mayor a menor
+            while(listaCantidadDeBodegasOrdenada != NULL){
+                //Muestro la lista de contador
+
+                contador = (Contador*)listaCantidadDeBodegasOrdenada->dato;
+               if((contador->cantidad != cantidadAnterior)){
+                    posicion = posicion +1;
+                }
+
+                 vino = obtenerNodoVino(listaDeVinosAux,contador->idVino);
+
+                 cout<<posicion<<"|"<<getBodega(vino)<<endl;
+                cantidadAnterior = contador->cantidad;
+                listaCantidadDeBodegasOrdenada = listaCantidadDeBodegasOrdenada->siguiente;
+
+            }
+
+            system("pause");
+}
+
+
+
+}
+//-----------------------------------------------------------------------------------------
+
+// Cuenta los registros de los vinos
+int mostrarBodegasNumero(Nodo *lista){
+
+    Vino* vino;
+    vino = crearVinoVacio(vino);
+    Nodo *actual = new Nodo();
+    actual = lista;
+
+    int i=0;
+
+
+if(actual == NULL){
+    cout<<"La lista esta vacia"<<endl;
+}
+//Generamos la cabecera de la tabla
+cout<<"BODEGA|"<<endl;
+while(actual != NULL)
+
+    {
+        vino = (Vino*)actual->dato;
+
+        actual = actual->siguiente;
+        i = i+1;
+    }
+
+return i;
+
+}
+
+
+void mostrarListaDeLasBodegas(Nodo *lista){
+
+    Contador* contador;
+    contador = crearContadorVacio(contador);
+    Nodo *actual = new Nodo();
+    actual = lista;
+
+if(actual == NULL){
+    cout<<"La lista esta vacia"<<endl;
+}
+
+
+cout<<"----------Lista de todas las Bodegas--------------"<<endl;
+
+
+while(actual != NULL)
+
+    {   //CASTEO EL DATO A TIPO CONTADOR, PARA OBTENER LA INFORMACION
+        contador = (Contador*)actual->dato;
+
+        cout<<"|"<<getContadorBodega(contador)<<"|"<<endl;
+        actual = actual->siguiente;
+    }
+
+cout<<endl;
+
+}
+

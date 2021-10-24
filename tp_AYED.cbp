@@ -50,6 +50,8 @@
 		<Unit filename="Membresia.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="Utilidades.cpp" />
+		<Unit filename="Utilidades.h" />
 		<Unit filename="Vino.cpp" />
 		<Unit filename="Vino.h">
 			<Option target="&lt;{~None~}&gt;" />
