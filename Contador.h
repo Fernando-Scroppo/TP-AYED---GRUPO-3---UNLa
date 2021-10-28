@@ -5,7 +5,6 @@
 using namespace std;
 struct Contador{
     int idVino;
-    string bodega;
     int cantidad;
 
 };
@@ -44,31 +43,8 @@ void setContadorIdVino(Contador *contador, int idVino);
 
 void setContadorCantidad(Contador *contador, int cantidad);
 
-void setContadorBodega(Contador *contador,string bodega);
 
 
-
-// FALTA HACER CONTADOR BODEGA.
-//-------------------------------------------------------------- ultima actualizacion
-
-/*
-  pre: el contador debe haberse creado.
-  post: Deja un contador cargado con el string bodega y la cantidad seteada en cero.
-*/
-Contador* crearContador(Contador *contador,string bodega);
-
-/*
-  pre : el contador no debe haber sido creado.
-  post: el contador queda creado y preparado para ser usado con valores 0.
-*/
-
-Contador* crearContadorVacio(Contador *contador);
-
-/*
-  pre: el contador debe haberse creado.
-  post: Devuelve la la bodega.
-*/
-string getContadorBodega(Contador *contador);
 
 
 #endif // CONTADOR_H_INCLUDED

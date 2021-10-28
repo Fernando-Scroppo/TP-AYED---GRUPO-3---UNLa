@@ -40,38 +40,39 @@
 
 1633732170 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\contador.h
 
-1635114695 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.cpp
+1635423781 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.cpp
 	"lista.h"
 	"Vino.h"
 	"Cliente.h"
 	"Contador.h"
+	"ContadorBodega.h"
 	"ContadorVarietal.h"
 	"Membresia.h"
 	"Utilidades.h"
 	<fstream>
 	<iostream>
 
-1635114546 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.h
+1635386036 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.h
 	<sstream>
 	"Vino.h"
 	"Cliente.h"
 
-1635110845 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\vino.h
+1635386036 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\vino.h
 	<sstream>
 
-1635112668 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\main.cpp
+1635423843 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\main.cpp
 	<iostream>
 	"Vino.h"
 	"Cliente.h"
 	"lista.h"
 	"Membresia.h"
 
-1635110845 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\vino.cpp
+1635386036 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\vino.cpp
 	<iostream>
 	<stdlib.h>
 	"Vino.h"
 
-1635115125 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\cliente.h
+1635386036 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\cliente.h
 	<sstream>
 
 1633728293 69143ed4d1a69f1aa6a8cb1e8dd5c09ef56b4
@@ -172,20 +173,20 @@
 	<stdlib.h>
 	"Membresia.h"
 
-1635110845 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\cliente.cpp
+1635386036 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\cliente.cpp
 	"Cliente.h"
 	<iostream>
 	<stdlib.h>
 
-1635112668 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contador.cpp
+1635422574 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contador.cpp
 	"Contador.h"
 
-1635115376 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contador.h
+1635422564 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contador.h
 	<sstream>
 
-1635110845 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\membresia.h
+1635386036 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\membresia.h
 
-1635110845 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\membresia.cpp
+1635386036 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\membresia.cpp
 	<iostream>
 	<stdlib.h>
 	"Membresia.h"
@@ -209,15 +210,21 @@
 1635096161 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\utilidades.cpp
 	"Utilidades.h"
 
-1635110845 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contadorvarietal.cpp
+1635386036 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contadorvarietal.cpp
 	"ContadorVarietal.h"
 
-1635110845 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contadorvarietal.h
+1635386036 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contadorvarietal.h
 	<sstream>
 
-1635110845 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\utilidades.h
+1635386036 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\utilidades.h
 	<sstream>
 
-1635110845 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\utilidades.cpp
+1635386036 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\utilidades.cpp
 	"Utilidades.h"
+
+1635422209 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contadorbodega.cpp
+	"ContadorBodega.h"
+
+1635421980 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contadorbodega.h
+	<sstream>
 

@@ -2,6 +2,7 @@
 #include "Vino.h"
 #include "Cliente.h"
 #include "Contador.h"
+#include "ContadorBodega.h"
 #include "ContadorVarietal.h"
 #include "Membresia.h"
 #include "Utilidades.h"
@@ -847,15 +848,15 @@ Nodo* sumarUnoAlaBodega(Nodo *&listaDeVinos,Nodo *&listaContadorBodegas,int idVi
     while (listaContadorBodega != NULL && encontrado == 0){
 
 
-        Contador* contador = (Contador*)listaContadorBodega->dato;
+        ContadorBodega* contadorBodega = (ContadorBodega*)listaContadorBodega->dato;
         //Se va sumando uno al contador de bodega
-        if( getContadorBodega(contador) == getBodega(vino)){
-            contador = (Contador*)listaContadorBodega->dato;
-            cantidad = getContadorCantidad(contador) +1 ;
-            setContadorCantidad(contador,cantidad);
-            setContadorBodega(contador,getContadorBodega(contador));
+        if( getContadorBodega(contadorBodega) == getBodega(vino)){
+            contadorBodega = (ContadorBodega*)listaContadorBodega->dato;
+            cantidad = getContadorCantidad(contadorBodega) +1 ;
+            setContadorCantidad(contadorBodega,cantidad);
+            setContadorBodega(contadorBodega,getContadorBodega(contadorBodega));
             encontrado = 1;
-            nodo->dato = contador;
+            nodo->dato = contadorBodega;
             nodo->siguiente = listaDeVinosAux->siguiente;
             listaContadorBodega = nodo;
         }
@@ -871,7 +872,7 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos){
 
     //reservo un espacio en la memoria para el TDA de tipo vino
     Vino* vino = new Vino();
-    Contador* numerobodega;
+    ContadorBodega* numerobodega;
     Nodo *listaNumeroBodegas = crearLista();
 
     int numero = mostrarBodegasNumero( listaDeVinos);
@@ -890,7 +891,7 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos){
 
            if(i==0){
             // Agrega la primer bodega
-            numerobodega = crearContador(numerobodega,getBodega(vino));
+            numerobodega = crearContadorBodega(numerobodega,getBodega(vino));
             bodegas[i]=getBodega(vino); // lo guardo en el array para iniciar la comparacion
 
             insertarNodo(listaNumeroBodegas,numerobodega); // inserto el primer nodo
@@ -901,20 +902,14 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos){
             // (El array comienza en la segunda vuelta && mientras ARRAY < cantidad de registros && salida no sea verdad)
            while ( (i>0) && (i<numero) && salida==false){
 
-                numerobodega = crearContador(numerobodega,getBodega(vino)); //creo un contador y su bodega
+                numerobodega = crearContadorBodega(numerobodega,getBodega(vino)); //creo un contador y su bodega
                 bodegas[i]=getBodega(vino); //inserto la bodega en el array
 
                 for (int k=0 ;k<i+1; k++){ //repite  N veces ,segun lo que valga  i
                     if(bodegas[k-1]==bodegas[i]){ //compara que no se repita
-                                                                                    //cout<<"k:"<<k<<endl;
-                                                                                    //cout<<"i"<<i<<endl;
-                                                                                    // cout <<"bodeka K : "<<bodegas[k-1]<<" BODEGA I :"<<bodegas[i]<<endl;
+
                         contador= contador+1; // si se repite incrementa contador
                         k=i+1;// finalizo el for
-
-
-                    }
-                    else{
 
 
                     }
@@ -952,7 +947,7 @@ void rankingDeBodegas(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,
     Nodo *listaDeVinosAux = listaDeVino; //lista aux de vinos
     Contador* contadorAux; // contador auxiliar para contador
 
-    Contador* contador;
+    ContadorBodega* contadorBodega;
     int cantidadInicial;
     int cantidadAnterior;
     Vino* vino;
@@ -982,9 +977,9 @@ void rankingDeBodegas(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,
             //NO SE ESTA CARGANDO LA LISTA DE BODEGAS ORDENADA.
             while(listaContadoraDeBodegas != NULL){
 
-                Contador* contador = (Contador*)listaContadoraDeBodegas->dato;
+                ContadorBodega* contadorBodega = (ContadorBodega*)listaContadoraDeBodegas->dato;
                 //Inserto los contadores en orden descendente, en listaCantidadDeVinosOrdenada.
-                insertarContadorDescendentemente(listaCantidadDeBodegasOrdenada,contador);
+                insertarContadorDescendentemente(listaCantidadDeBodegasOrdenada,contadorBodega);
                 listaContadoraDeBodegas = listaContadoraDeBodegas->siguiente;
             }
 
@@ -996,18 +991,19 @@ void rankingDeBodegas(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,
             while(listaCantidadDeBodegasOrdenada != NULL){
                 //Muestro la lista de contador
 
-                contador = (Contador*)listaCantidadDeBodegasOrdenada->dato;
-                cout<<contador->bodega<<contador->cantidad<<endl;
+                contadorBodega = (ContadorBodega*)listaCantidadDeBodegasOrdenada->dato;
+                cout<<contadorBodega->bodega<<contadorBodega->cantidad<<endl;
                 system("pause");
 
-                if((contador->cantidad != cantidadAnterior)){
+                if((contadorBodega->cantidad != cantidadAnterior)){
                     posicion = posicion +1;
                 }
 
-                 vino = obtenerNodoVino(listaDeVinosAux,contador->idVino);
+                    // arreglar la linea
+               //vino = obtenerNodoVino(listaDeVinosAux,contador->idVino);//contadorBodega no tiene  un IDVino.
 
                 cout<<posicion<<"|"<<getBodega(vino)<<endl;
-                cantidadAnterior = contador->cantidad;
+                cantidadAnterior = contadorBodega->cantidad;
                 listaCantidadDeBodegasOrdenada = listaCantidadDeBodegasOrdenada->siguiente;
 
             }
@@ -1062,8 +1058,8 @@ return i;
 
 void mostrarListaDeLasBodegas(Nodo *lista){
 
-    Contador* contador;
-    contador = crearContadorVacio(contador);
+    ContadorBodega* contadorBodega;
+    contadorBodega = crearContadorVacioBodega(contadorBodega);
     Nodo *actual = new Nodo();
     actual = lista;
 
@@ -1078,9 +1074,9 @@ cout<<"----------Lista de todas las Bodegas--------------"<<endl;
 while(actual != NULL)
 
     {   //CASTEO EL DATO A TIPO CONTADOR, PARA OBTENER LA INFORMACION
-        contador = (Contador*)actual->dato;
+        contadorBodega = (ContadorBodega*)actual->dato;
 
-        cout<<"|"<<getContadorBodega(contador)<<"|"<<endl;
+        cout<<"|"<<getContadorBodega(contadorBodega)<<"|"<<endl;
         actual = actual->siguiente;
     }
 
