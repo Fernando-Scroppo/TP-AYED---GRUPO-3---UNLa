@@ -14,7 +14,7 @@ int main()
     Nodo *listaDeClientes = crearLista();
     Nodo *listaContabilizadoraDeVinos = crearLista();
     Nodo *listaDeMembresia= crearLista();
-
+    Nodo *listaContabilizadoraDeBodegas=crearLista();
 
     //Cargo la lista con el catalogo de vinos.
     listaDeVinos = cargarCatalogoDeVinos(listaDeVinos,"catalos_test.txt");
@@ -23,19 +23,12 @@ int main()
 
     //Se carga la lista de vinos en una lista auxiliar para realizar la contabilidad
     listaContabilizadoraDeVinos = InicializarContadorDeVinos(listaDeVinos);
-
-    //Ejemplo para obtener una posicion.
-    /*Nodo *nodoObtener = obtenerNodoPorPosicion(listaDeVinos,2);
-    //Vino* vino;
-    Vino* vino = crearVinoVacio(vino);
-    vino = (Vino*)nodoObtener->dato;
-    cout<<vino->idVino<<endl;
-    system("pause");*/
+    listaContabilizadoraDeBodegas =InicializarContadorDeBodegas(listaDeVinos);
 
     listaDeMembresia=cargarCatalogoDeMembresia(listaDeMembresia,"elecion_test.txt");
 
     int opcion;
-    int anio;
+    int anio; // SE USA?
     int rangoEtario;
 
     Cliente* cli = new Cliente();
@@ -49,6 +42,8 @@ int main()
         cout<<"4. Mostrar la lista de Vinos cargada"<<endl;
         cout<<"5. Mostrar la lista de Clientes cargada"<<endl;
         cout<<"6. Mostrar la lista de Membresia cargada"<<endl;
+        cout<<"7. Mostrar la lista de Bodegas cargada"<<endl;
+
         cout<<"0. Salir del programa"<<endl;
         cin>>opcion;
 
@@ -57,6 +52,12 @@ int main()
 
         case 1:
             rankingDeVinos(listaDeMembresia,listaContabilizadoraDeVinos,listaDeVinos);
+            break;
+
+        case 2:
+            cout<<"El ranking de bodegas correspodiente a que año quiere obtener:"<<endl;
+            cin>>anio;
+            rankingDeBodegas(listaDeMembresia,listaContabilizadoraDeVinos,listaContabilizadoraDeBodegas,listaDeVinos,anio);
             break;
 
         case 3:
@@ -84,6 +85,12 @@ int main()
             mostrarListaDeMembresia(listaDeMembresia);
             system("pause");
             break;
+
+        case 7:
+            mostrarListaDeLasBodegas(listaContabilizadoraDeBodegas);
+            system("pause");
+            break;
+
         }
 
 
