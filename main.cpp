@@ -24,11 +24,9 @@ int main()
     //Se carga la lista de vinos en una lista auxiliar para realizar la contabilidad
     listaContabilizadoraDeVinos = InicializarContadorDeVinos(listaDeVinos);
     listaContabilizadoraDeBodegas =InicializarContadorDeBodegas(listaDeVinos);
-
     listaDeMembresia=cargarCatalogoDeMembresia(listaDeMembresia,"elecion_test.txt");
 
     int opcion;
-    int anio; // SE USA?
     int rangoEtario;
 
     Cliente* cli = new Cliente();
@@ -42,6 +40,7 @@ int main()
         cout<<"4. Mostrar la lista de Vinos cargada"<<endl;
         cout<<"5. Mostrar la lista de Clientes cargada"<<endl;
         cout<<"6. Mostrar la lista de Membresia cargada"<<endl;
+
         cout<<"7. Mostrar la lista de Bodegas cargada"<<endl;
 
         cout<<"0. Salir del programa"<<endl;
@@ -55,9 +54,7 @@ int main()
             break;
 
         case 2:
-            cout<<"El ranking de bodegas correspodiente a que año quiere obtener:"<<endl;
-            cin>>anio;
-            rankingDeBodegas(listaDeMembresia,listaContabilizadoraDeVinos,listaContabilizadoraDeBodegas,listaDeVinos,anio);
+            rankingDeBodegas(listaDeMembresia,listaContabilizadoraDeVinos,listaContabilizadoraDeBodegas,listaDeVinos);
             break;
 
         case 3:

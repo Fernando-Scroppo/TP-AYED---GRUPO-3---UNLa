@@ -239,7 +239,7 @@ int mostrarBodegasNumero (Nodo *lista);
 [nombre de la funcion = rankingDeBodegas]
 [datos que necesita mi funcion = no definido]) */
 
-void rankingDeBodegas(Nodo *listaDeMembresia,Nodo *listaContabilizadoraDeVinos, Nodo *listaContabilizadoraDeBodegas,Nodo *listaDeVinos, int anio);
+void rankingDeBodegas(Nodo *listaDeMembresia,Nodo *listaContabilizadoraDeVinos, Nodo *listaContabilizadoraDeBodegas,Nodo *listaDeVinos);
 
 
 /*

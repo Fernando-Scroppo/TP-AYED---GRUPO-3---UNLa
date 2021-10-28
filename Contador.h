@@ -44,6 +44,11 @@ void setContadorIdVino(Contador *contador, int idVino);
 
 void setContadorCantidad(Contador *contador, int cantidad);
 
+void setContadorBodega(Contador *contador,string bodega);
+
+
+
+// FALTA HACER CONTADOR BODEGA.
 //-------------------------------------------------------------- ultima actualizacion
 
 /*
@@ -64,9 +69,6 @@ Contador* crearContadorVacio(Contador *contador);
   post: Devuelve la la bodega.
 */
 string getContadorBodega(Contador *contador);
-
-
-
 
 
 #endif // CONTADOR_H_INCLUDED

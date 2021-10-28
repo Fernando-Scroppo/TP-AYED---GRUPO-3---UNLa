@@ -1,7 +1,5 @@
 #include "Contador.h"
 
-
-
 Contador* crearContador(Contador *contador,string bodega){
     contador = new Contador();
     contador->bodega = bodega;
@@ -39,3 +37,8 @@ void setContadorIdVino(Contador *contador,int idVino){
 void setContadorCantidad(Contador *contador, int cantidad){
     contador->cantidad = cantidad;
 }
+
+void setContadorBodega(Contador *contador,string bodega){ //geral
+    contador->bodega = bodega;
+}
+
