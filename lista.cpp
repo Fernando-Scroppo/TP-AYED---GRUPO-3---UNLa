@@ -686,6 +686,8 @@ void rankingDeVarietales(Nodo *listaDeMembresia,Nodo *listaDeVinos, Nodo *listaD
                 //Muestro la lista de contador
 
                conta = (ContadorVarietal*)listaCantidadDeVarietalesOrdenada->dato;
+               //cout<<"Varietal: "<<conta->varietal<<"Cantidad: "<<conta->cantidad<<endl;
+               system("pause");
                if((getContadorVarietalCantidad(conta) != cantidadAnterior)){
                     posicion = posicion +1;
                 }
@@ -698,8 +700,6 @@ void rankingDeVarietales(Nodo *listaDeMembresia,Nodo *listaDeVinos, Nodo *listaD
             }
 
             system("pause");
-
-
 
 }
 
