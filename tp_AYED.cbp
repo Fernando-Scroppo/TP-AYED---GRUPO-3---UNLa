@@ -38,14 +38,10 @@
 		</Unit>
 		<Unit filename="Contador.cpp" />
 		<Unit filename="Contador.h" />
+		<Unit filename="ContadorBodega.cpp" />
+		<Unit filename="ContadorBodega.h" />
 		<Unit filename="ContadorVarietal.cpp" />
 		<Unit filename="ContadorVarietal.h" />
-		<Unit filename="ListaVino.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="ListaVino.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="Membresia.cpp" />
 		<Unit filename="Membresia.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -58,9 +54,6 @@
 		</Unit>
 		<Unit filename="lista.cpp" />
 		<Unit filename="lista.h" />
-		<Unit filename="listaUsuarios.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

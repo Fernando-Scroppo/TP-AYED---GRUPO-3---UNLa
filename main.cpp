@@ -30,7 +30,7 @@ int main()
     int rangoEtario;
 
     Cliente* cli = new Cliente();
-    string atributo;
+    //string atributo;
 
     do{
         cout<<"\t.:SISTEMA DE RANKINGS:."<<endl;
@@ -100,6 +100,7 @@ int main()
     vaciarLista(listaDeClientes);
     vaciarLista(listaContabilizadoraDeVinos);
     vaciarLista(listaDeMembresia);
+    vaciarLista(listaContabilizadoraDeBodegas);
 
     return 0;
 }

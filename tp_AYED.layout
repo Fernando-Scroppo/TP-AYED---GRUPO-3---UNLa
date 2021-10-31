@@ -2,6 +2,7 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="ContadorVarietal.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="420" topLine="0" />
@@ -15,8 +16,49 @@
 	<File name="Vino.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3219" topLine="72" />
+=======
+	<File name="Vino.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4260" topLine="85" />
 		</Cursor>
 	</File>
+	<File name="Membresia.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2234" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="lista.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="32837" topLine="39" />
+>>>>>>> 35f93e7b23d8cc7572cbbefab419d02f9476bbc3
+		</Cursor>
+		<Folding>
+			<Collapse line="18" />
+			<Collapse line="24" />
+			<Collapse line="57" />
+			<Collapse line="83" />
+			<Collapse line="120" />
+			<Collapse line="132" />
+			<Collapse line="158" />
+			<Collapse line="178" />
+			<Collapse line="251" />
+			<Collapse line="286" />
+			<Collapse line="320" />
+			<Collapse line="345" />
+			<Collapse line="396" />
+			<Collapse line="413" />
+			<Collapse line="487" />
+			<Collapse line="549" />
+			<Collapse line="573" />
+			<Collapse line="591" />
+			<Collapse line="710" />
+			<Collapse line="800" />
+			<Collapse line="869" />
+			<Collapse line="1029" />
+			<Collapse line="1058" />
+		</Folding>
+	</File>
+<<<<<<< HEAD
 	<File name="lista.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="31724" topLine="975" />
@@ -28,10 +70,24 @@
 		</Cursor>
 	</File>
 	<File name="Utilidades.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="Cliente.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="56" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Contador.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="135" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Utilidades.h" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> 35f93e7b23d8cc7572cbbefab419d02f9476bbc3
 		<Cursor>
 			<Cursor1 position="359" topLine="0" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="ListaVino.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
@@ -43,20 +99,43 @@
 		</Cursor>
 	</File>
 	<File name="Cliente.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="41" topLine="0" />
+			<Cursor1 position="1065" topLine="36" />
 		</Cursor>
 	</File>
+	<File name="Contador.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="656" topLine="7" />
+		</Cursor>
+	</File>
+	<File name="Vino.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> 35f93e7b23d8cc7572cbbefab419d02f9476bbc3
+		<Cursor>
+			<Cursor1 position="3219" topLine="72" />
+		</Cursor>
+	</File>
+<<<<<<< HEAD
 	<File name="lista.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="10418" topLine="10" />
 		</Cursor>
 	</File>
 	<File name="Membresia.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="ContadorVarietal.cpp" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="420" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Membresia.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> 35f93e7b23d8cc7572cbbefab419d02f9476bbc3
 		<Cursor>
 			<Cursor1 position="62" topLine="50" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="Contador.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1293" topLine="33" />
@@ -75,6 +154,31 @@
 	<File name="Contador.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1073" topLine="8" />
+=======
+	<File name="Cliente.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="41" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="ContadorBodega.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="582" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="ContadorVarietal.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1479" topLine="23" />
+		</Cursor>
+	</File>
+	<File name="ContadorBodega.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="66" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="lista.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9322" topLine="180" />
+>>>>>>> 35f93e7b23d8cc7572cbbefab419d02f9476bbc3
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
