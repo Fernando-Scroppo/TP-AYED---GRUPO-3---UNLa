@@ -92,8 +92,6 @@ void setArrayVinos(Membresia *membresia, int vinosP[]);
 /*int**/
 int*  getArrayVinos(Membresia *membresia);
 
-
-
 /*----------------------------------------------------------------------------*/
 
 

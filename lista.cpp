@@ -22,6 +22,27 @@ Nodo* crearLista(){
      return lista;
 }
 
+/* Metodos get y set de los nodos */
+
+Nodo* getNodoSiguiente(Nodo *nodo){
+    return nodo->siguiente;
+}
+
+void* getNodoDato(Nodo *nodo){
+    return nodo->dato;
+}
+
+void setNodoSiguiente(Nodo *nodo, Nodo *nodoSiguiente){
+    nodo->siguiente = nodoSiguiente;
+}
+
+void setNodoDato(Nodo *nodo, void *dato){
+    nodo->dato = dato;
+}
+
+/* Fin de get y set */
+
+
 Nodo* obtenerNodoPorPosicion(Nodo *&lista, int posicion){
 
     int indice = 0;
@@ -59,24 +80,24 @@ void insertarNodo(Nodo *&lista,void *n){
 
     //Creo un nuevo nodo
     Nodo *nuevo_nodo = new Nodo();
-    nuevo_nodo->dato = n;
+    setNodoDato(nuevo_nodo,n);
 
     Nodo *aux1 = lista;
     Nodo *aux2;
 
     while(aux1 != NULL){
         aux2 = aux1;
-        aux1 = aux1->siguiente;
+        aux1 = getNodoSiguiente(aux1);
     }
     //Primer nodo de la lista
     if(lista == aux1){
         lista = nuevo_nodo;
     }else{
         //Ultimo nodo de la lista.
-        aux2->siguiente=nuevo_nodo;
-    }
+       setNodoSiguiente(aux2,nuevo_nodo);
 
-    nuevo_nodo->siguiente = aux1;
+    }
+    setNodoSiguiente(nuevo_nodo,aux1);
 
     //YOUTUBE: https://www.youtube.com/watch?v=cPcDuIUqEO4&t=882s
 }
@@ -94,23 +115,24 @@ void eliminarNodo(Nodo *&lista, int indiceP){
         //Mientras que no encuentre la posicion que quiero borrar continua.
         while((aux_borrar != NULL)&& (indice != indiceP )){
             anterior = aux_borrar;
-            aux_borrar = aux_borrar->siguiente;
+            aux_borrar = getNodoSiguiente(aux_borrar);
             indice++;
         }
 
         //En este caso nunca entro al While por la tanto el elemento que quiere borrar no existe
         if(aux_borrar == NULL){
-            cout<<"Esa posicion No existe en la lista"<<endl;
+            cout<<"Esa posicion NO existe en la lista"<<endl;
         }
         //El elemento que quiere eliminar esta al principio de la lista
         else if(anterior == NULL){
-            lista = lista->siguiente;
+            lista = getNodoSiguiente(lista);
             cout<<"El Nodo fue eliminado exitosamente de la lista"<<endl;
             delete aux_borrar;
         }
         //Si el elemento esta entre medio de la lista
         else{
             anterior->siguiente = aux_borrar->siguiente;
+            setNodoSiguiente(anterior,getNodoSiguiente(aux_borrar));
             cout<<"El Nodo fue eliminado exitosamente de la lista"<<endl;
             delete aux_borrar;
         }
@@ -121,8 +143,8 @@ void eliminarNodo(Nodo *&lista, int indiceP){
 void vaciarLista( Nodo *& lista){
     void *n;
     Nodo *aux = lista;
-    n = aux->dato;
-    lista = aux->siguiente;
+    n = getNodoDato(aux);
+    lista = getNodoSiguiente(aux);
     delete aux;
 }
 
@@ -133,7 +155,6 @@ void vaciarLista( Nodo *& lista){
 void mostrarListaDeVinos(Nodo *lista){
 
     Vino* vino = crearVinoVacio(vino);
-    vino = crearVinoVacio(vino);
     Nodo *actual = new Nodo();
     actual = lista;
 
@@ -145,10 +166,10 @@ cout<<"|ID|"<<"ETIQUETA|"<<"BODEGA|"<<"SEGMENTO DEL VINO|"<<"VARIETAL|"<<"ANIO D
 while(actual != NULL)
 
     {   //CASTEO EL DATO A TIPO VINO, PARA OBTENER LA INFORMACION
-        vino = (Vino*)actual->dato;
+        vino = (Vino*) getNodoDato(actual);
 
         cout<<"|"<<getIdVino(vino)<<"|"<<getEtiqueta(vino)<<"|"<<getBodega(vino)<<"|"<<getSegmento(vino)<<"|"<<getVarietal(vino)<<"|"<<getAnioCosecha(vino)<<"|"<<getTerroir(vino)<<"|"<<endl;
-        actual = actual->siguiente;
+        actual = getNodoSiguiente(actual);
     }
 
 cout<<endl;
@@ -158,19 +179,20 @@ cout<<endl;
 
 Vino* obtenerNodoVino(Nodo *&listaVinos, int idVino){
 
-    Vino* vino;
+    Vino* vino = crearVinoVacio(vino);
     Nodo *listaAux = listaVinos;
     bool encontrado = 0;
 
     while(listaAux != NULL && encontrado == 0){
         vino = (Vino*)listaAux->dato;
+        vino = (Vino*)getNodoDato(listaAux);
         if(getIdVino(vino) == idVino){
             encontrado = 1;
-            vino=(Vino*)listaAux->dato;
+            vino = (Vino*)getNodoDato(listaAux);
             return vino;
         }
 
-        listaAux = listaAux->siguiente;
+        listaAux = getNodoSiguiente(listaAux);
     }
 
 }
@@ -253,23 +275,24 @@ void insertarContadorVarietalDescendentemente (Nodo *&listaAOrdenar, void *conta
 
     //Creo un nuevo nodo.
     Nodo *nuevo_nodo = new Nodo();
-    nuevo_nodo->dato = contador;
+    setNodoDato(nuevo_nodo,contador);
 
     Nodo *aux1 = listaAOrdenar;
     Nodo *aux2;
     ContadorVarietal* contadorDato;
 
     if(aux1!= NULL){
-        contadorDato = (ContadorVarietal*)aux1->dato;
+        contadorDato= (ContadorVarietal*)getNodoDato(aux1);
     }
 
     ContadorVarietal* contadorP = (ContadorVarietal*)contador;
 
-    while((aux1 != NULL)&&(contadorDato->cantidad > contadorP->cantidad)){
+    while((aux1 != NULL)&&( getContadorVarietalCantidad(contadorDato) > getContadorVarietalCantidad(contadorP))){
         aux2 = aux1;
-        aux1 = aux1->siguiente;
+        aux1 = getNodoSiguiente(aux1);
+
         if(aux1!=NULL){
-           contadorDato = (ContadorVarietal*)aux1->dato;
+           contadorDato = (ContadorVarietal*)getNodoDato(aux1);
         }
     }
     //Primer nodo de la lista
@@ -277,10 +300,10 @@ void insertarContadorVarietalDescendentemente (Nodo *&listaAOrdenar, void *conta
         listaAOrdenar = nuevo_nodo;
     }else{
         //Ultimo nodo de la lista.
-        aux2->siguiente=nuevo_nodo;
+        setNodoSiguiente(aux2,nuevo_nodo);
     }
 
-    nuevo_nodo->siguiente = aux1;
+    setNodoSiguiente(nuevo_nodo,aux1);
 }
 
 
@@ -288,23 +311,23 @@ void insertarContadorDescendentemente (Nodo *&listaAOrdenar, void *contador){
 
     //Creo un nuevo nodo.
     Nodo *nuevo_nodo = new Nodo();
-    nuevo_nodo->dato = contador;
+    setNodoDato(nuevo_nodo,contador);
 
     Nodo *aux1 = listaAOrdenar;
     Nodo *aux2;
     Contador* contadorDato;
 
     if(aux1!= NULL){
-        contadorDato = (Contador*)aux1->dato;
+        contadorDato = (Contador*)getNodoDato(aux1);
     }
 
     Contador* contadorP = (Contador*)contador;
 
-    while((aux1 != NULL)&&(contadorDato->cantidad > contadorP->cantidad)){
+    while((aux1 != NULL)&&(getContadorCantidad(contadorDato) > getContadorCantidad(contadorP))){
         aux2 = aux1;
-        aux1 = aux1->siguiente;
+        aux1 = getNodoSiguiente(aux1);
         if(aux1!=NULL){
-           contadorDato = (Contador*)aux1->dato;
+           contadorDato = (Contador*)getNodoDato(aux1);
         }
     }
     //Primer nodo de la lista
@@ -312,10 +335,9 @@ void insertarContadorDescendentemente (Nodo *&listaAOrdenar, void *contador){
         listaAOrdenar = nuevo_nodo;
     }else{
         //Ultimo nodo de la lista.
-        aux2->siguiente=nuevo_nodo;
+        setNodoSiguiente(aux1,nuevo_nodo);
     }
-
-    nuevo_nodo->siguiente = aux1;
+    setNodoSiguiente(nuevo_nodo,aux1);
 }
 
 Nodo* sumarUnoAlIdVino(Nodo *&listaContadorVinos, int idVino){
@@ -326,22 +348,26 @@ Nodo* sumarUnoAlIdVino(Nodo *&listaContadorVinos, int idVino){
 
     while (listaContadorVino != NULL && encontrado == 0){
 
-        Contador* contador = (Contador*)listaContadorVino->dato;
+        Contador* contador = (Contador*)getNodoDato(listaContadorVino);
 
+        //Cuando encontramos el vino, actualizamos la cantidad
         if(contador->idVino == idVino){
-            contador = (Contador*)listaContadorVino->dato;
+            contador = (Contador*)getNodoDato(listaContadorVino);
             setContadorCantidad(contador,getContadorCantidad(contador)+1);
             setContadorIdVino(contador,idVino);
             encontrado = 1;
-            nodo->dato = contador;
-            nodo->siguiente = listaContadorVino->siguiente;
+            setNodoDato(nodo,contador);
+            setNodoSiguiente(nodo,getNodoSiguiente(listaContadorVino));
             listaContadorVino = nodo;
         }
-        listaContadorVino = listaContadorVino->siguiente;
+
+        listaContadorVino = getNodoSiguiente(listaContadorVino);
 
     }
+    //Devuelvo la lista, con los contadores de vino actualizados
     return listaContadorVinos;
 }
+
 
 Nodo* updateContadorDeVarietales(Nodo *&listaDeVarietales, int cantidad, string varietal){
 
@@ -356,29 +382,21 @@ Nodo* updateContadorDeVarietales(Nodo *&listaDeVarietales, int cantidad, string 
     //HACER UN INICIALIZADOR CONTADOR VARIETAL.
     while(listaVarietales != NULL){
 
-        contadorAux=(ContadorVarietal*)listaVarietales->dato;
-        /*cout<<"///////////////////////////////////////////////////////"<<endl;
-        cout<<"Varietal de la lista que recibo"<<endl;
-        cout<<getContadorObtenerVarietal(contadorAux)<<endl;
-        cout<<"Varietal Parametro"<<endl;
-        cout<<varietal<<endl;
-        system("pause");
-        cout<<"///////////////////////////////////////////////////////"<<endl;
-        */
+        contadorAux= (ContadorVarietal*)getNodoDato(listaVarietales);
 
         if(varietal == getContadorObtenerVarietal(contadorAux)){
             //cout<<"Actualiza un Nodo"<<endl;
             sumaDeCantidades = getContadorVarietalCantidad(contadorAux)+cantidad;
             setContadorVarietalCantidad(contadorAux,sumaDeCantidades);
-            nuevoNodo->dato = contadorAux;
-            nuevoNodo->siguiente = listaVarietales->siguiente;
+            setNodoDato(nuevoNodo,contadorAux);
+            setNodoSiguiente(nuevoNodo,getNodoSiguiente(listaVarietales));
             listaVarietales = nuevoNodo;
             encontrado = 1;
         }
-        listaVarietales = listaVarietales->siguiente;
+
+        listaVarietales = getNodoSiguiente(listaVarietales);
     }
 
-    //cout<<"Termino de recorrer la lista que recibio"<<endl;
 
     //En caso de que no este el varietal lo agrego en la lista.
     if(encontrado == 0){
@@ -388,26 +406,27 @@ Nodo* updateContadorDeVarietales(Nodo *&listaDeVarietales, int cantidad, string 
         insertarNodo(listaDeVarietales,varietalNuevo);
     }
 
+    //Retorno la lista con la cantidad de varietales o con un varietal nuevo actualizada.
     return listaDeVarietales;
 }
 
 
 
 //Devuelvo una lista de Contadores, con cada id de vino existente.
-Nodo* InicializarContadorDeVinos( Nodo *listaDeVinos){
+Nodo* InicializarContadorDeVinos(Nodo *listaDeVinos){
 
-    //Nodo *listaDeVinosAux = new Nodo();
-    Vino* vino = new Vino();
-    Contador* numeroVino;
+    Vino* vino = crearVinoVacio(vino);
+    Contador* numeroVino = new Contador();
     Nodo *listaNumeroVinos = crearLista();
 
+    //Creo una lista de contadores de vinos
     while(listaDeVinos != NULL){
-           //listaDeVinosAux = listaDeVinos;
-           vino = (Vino*)listaDeVinos->dato;
+           vino = (Vino*)getNodoDato(listaDeVinos);
            numeroVino = crearContador(numeroVino,getIdVino(vino));
            insertarNodo(listaNumeroVinos,numeroVino);
-           listaDeVinos = listaDeVinos->siguiente;
+           listaDeVinos = getNodoSiguiente(listaDeVinos);
     }
+    //retorno una lista con todos los id de vinos y cantidades en cero.
     return listaNumeroVinos;
 }
 
@@ -421,39 +440,38 @@ void rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,No
     Nodo *listaCantidadDeVinosOrdenada = crearLista();
     Nodo *nodoVino = new Nodo();
     Nodo *listaDeVinosAux = listaDeVinos;
-    Contador* contadorAux;
+    Contador* contadorAux = new Contador();
 
     Contador* contador;
+    int* vinos;
     int cantidadInicial;
     int cantidadAnterior;
-    Vino* vino;
-    vino = crearVinoVacio(vino);
+    Vino* vino = crearVinoVacio(vino);
     int posicion = 0;
     int posicionAux;
 
         //Recorre la lista de membresia
         while(listaDeMembresia != NULL){
-            membresia = (Membresia*)listaDeMembresia->dato;
-            for(int i=0; i<6 ; i++){
-                if(getAnio(membresia) == 2021){
+            membresia = (Membresia*)getNodoDato(listaDeMembresia);
+            //Si es el anio que estoy buscando, le sumo uno al contador del id del vino.
+            if(getAnio(membresia) == 2021){
+                  for(int i=0; i<6 ; i++){
                     //Si es el anio que estoy buscando, le sumo uno al contador del id del vino.
                      listaContadoraDeVinos = sumarUnoAlIdVino(listaContadoraDeVinos,membresia->vinos[i]);
-                }
 
+                    }
             }
-            listaDeMembresia = listaDeMembresia->siguiente;
+
+            listaDeMembresia = getNodoSiguiente(listaDeMembresia);
         }
 
 
-            //AGREGAR VALIDACION: RECORRER  LA LISTA CONTADORA DE VINOS,
-            //SI ESTAN TODOS LOS CONTADORES CON CANTIDAD 0, NO EXISTE EL ANIO INGRESADO
-
             while(listaContadoraDeVinos != NULL){
 
-                Contador* contador = (Contador*)listaContadoraDeVinos->dato;
+                Contador* contador = (Contador*)getNodoDato(listaContadoraDeVinos);
                 //Inserto los contadores en orden descendente, en listaCantidadDeVinosOrdenada.
                 insertarContadorDescendentemente(listaCantidadDeVinosOrdenada,contador);
-                listaContadoraDeVinos = listaContadoraDeVinos->siguiente;
+                listaContadoraDeVinos = getNodoSiguiente(listaContadoraDeVinos);
 
             }
 
@@ -465,7 +483,8 @@ void rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,No
             while(listaCantidadDeVinosOrdenada != NULL){
                 //Muestro la lista de contador
 
-                contador = (Contador*)listaCantidadDeVinosOrdenada->dato;
+                contador = (Contador*)getNodoDato(listaCantidadDeVinosOrdenada);
+                //Si la cantidad de los vinos es la misma, la posicion no avanza.
                if((contador->cantidad != cantidadAnterior)){
                     posicion = posicion +1;
                 }
@@ -473,8 +492,8 @@ void rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,No
                  vino = obtenerNodoVino(listaDeVinosAux,contador->idVino);
 
                 cout<<posicion<<"|"<<getIdVino(vino)<<"|"<<getEtiqueta(vino)<<"|"<<getBodega(vino)<<"|"<<getSegmento(vino)<<"|"<<getVarietal(vino)<<"|"<<getAnioCosecha(vino)<<"|"<<getTerroir(vino)<<"|"<<endl;
-                cantidadAnterior = contador->cantidad;
-                listaCantidadDeVinosOrdenada = listaCantidadDeVinosOrdenada->siguiente;
+                cantidadAnterior = getContadorCantidad(contador);
+                listaCantidadDeVinosOrdenada = getNodoSiguiente(listaCantidadDeVinosOrdenada);
 
             }
 
@@ -546,6 +565,8 @@ Nodo* cargarCatalogoDeClientes(Nodo *lista, string nombreFile){
     input_file.close();
     return lista;
 }
+
+//ACTUALIZACION DE GET Y SET HASTA ACA
 
 void mostrarListaDeClientes(Nodo *lista){
 

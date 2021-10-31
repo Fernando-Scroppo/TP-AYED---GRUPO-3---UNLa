@@ -76,6 +76,38 @@ void vaciarLista( Nodo *& lista);
 void eliminarNodo(Nodo *&lista, int indiceP);
 
 /*---------------------------------------------------------------*/
+/*
+  pre: el nodo debe estar creado.
+  post: Devuelve el puntero al nodo siguiente.
+*/
+
+Nodo* getNodoSiguiente(Nodo *nodo);
+
+/*---------------------------------------------------------------*/
+/*
+  pre: el nodo debe estar creado.
+  post: Devuelve el dato tipo void que almacena el nodo.
+*/
+
+void* getNodoDato(Nodo *nodo);
+
+/*---------------------------------------------------------------*/
+
+/*
+    pre: El nodo base y el nodo que voy a setear tienen que estar previamente creados.
+    post: Setea el nodo siguiente.
+*/
+void setNodoSiguiente(Nodo *nodo, Nodo *nodoSiguiente);
+/*---------------------------------------------------------------*/
+
+/*
+    pre: El nodo base y el dato tienen que estar creado.
+    post: Setea el dato del nodo
+*/
+
+void setNodoDato(Nodo *nodo, void *dato);
+
+/*---------------------------------------------------------------*/
 
 /*
   PRE : La lista tiene que estar creada vacia y el archivo.txt tiene que existir.
@@ -256,8 +288,15 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos);
 
 void mostrarListaDeLasBodegas(Nodo *lista);
 
+/*
+  PRE : La lista de  vinos tiene que estar creada, la lista contadora de bodega tiene que estar inicializada y el id del vino tiene que existir en la misma.
+  POST: suma uno al a la bodega a la cual corresponda el vino.
+[retorno de la funcion = Retorno la lista de contador de bodegas, actualizada]
+[nombre de la funcion = sumarUnoAlaBodega]
+[datos que necesita mi funcion = La lista que tiene los contadores de las bodegas,la lista de vinos y el id del vino al cual hay que sumarle uno])
+*/
 
-Nodo* sumarUnoAlaBodega(Nodo *&listaContadorVinos ,Nodo *&listaContadorBodegas,int idVino);
+Nodo* sumarUnoAlaBodega(Nodo *&listaVinos ,Nodo *&listaContadorBodegas,int idVino);
 
 
 #endif // LISTAVOID_H_INCLUDED
