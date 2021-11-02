@@ -257,7 +257,7 @@ void insertarContadorVarietalDescendentemente (Nodo *&listaAOrdenar, void *conta
 
 
 
-/*-----------------------------------------------------------------------------------------------*/
+//*-----------------------------------------------------------------------------------------------*/
 /* Ultima actualizacion
 
 [retorno de la funcion = cantidad de registros de los vinos] // se usa para crear un array en contador de Bodegas.
@@ -272,6 +272,7 @@ int mostrarBodegasNumero (Nodo *lista);
 [datos que necesita mi funcion = no definido]) */
 
 void rankingDeBodegas(Nodo *listaDeMembresia,Nodo *listaContabilizadoraDeVinos, Nodo *listaContabilizadoraDeBodegas,Nodo *listaDeVinos);
+
 
 
 /*
@@ -298,5 +299,14 @@ void mostrarListaDeLasBodegas(Nodo *lista);
 
 Nodo* sumarUnoAlaBodega(Nodo *&listaVinos ,Nodo *&listaContadorBodegas,int idVino);
 
+/*
+  PRE : Debe crearse una lista de bodegas a ordenar, y un contador de tipo Bodega.
+  POST: Ordena la lista de bodegas ascendentemente, segun la cantidad de los contadores.
+[retorno de la funcion = No tiene retorno]
+[nombre de la funcion = insertarContadorBodegaDescendentemente]
+[datos que necesita mi funcion = La lista de bodegas a ordenar y un contador de tipo ContadorBodega])
+*/
+
+void insertarContadorBodegaDescendentemente(Nodo *&listaAOrdenar, void *contadorBodega);
 
 #endif // LISTAVOID_H_INCLUDED

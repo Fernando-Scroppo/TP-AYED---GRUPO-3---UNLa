@@ -41,13 +41,13 @@ void setContadorBodega(ContadorBodega *contadorBodega,string bodega);
   post: Devuelve la cantidad del contador.
 */
 
-int getContadorCantidad(ContadorBodega *contadorBodega);
+int getContadorCantidadBodega(ContadorBodega *contadorBodega);
 
 
 /*
   pre: el contador debe haberse creado.
   post: setea la cantidad .
 */
-void setContadorCantidad(ContadorBodega *contadorBodega, int cantidad);
+void setContadorCantidadBodega(ContadorBodega *contadorBodega, int cantidad);
 
 #endif // CONTADOR_H_INCLUDED
