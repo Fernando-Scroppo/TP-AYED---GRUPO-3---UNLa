@@ -1133,3 +1133,5 @@ void insertarContadorBodegaDescendentemente (Nodo *&listaAOrdenar, void *contado
     }
     setNodoSiguiente(nuevo_nodo,aux1);
 }
+
+
