@@ -315,7 +315,7 @@ void insertarContadorDescendentemente (Nodo *&listaAOrdenar, void *contador){
 
     Nodo *aux1 = listaAOrdenar;
     Nodo *aux2;
-    Contador* contadorDato;
+    Contador* contadorDato = crearContadorVacio(contadorDato);
 
     if(aux1!= NULL){
         contadorDato = (Contador*)getNodoDato(aux1);
@@ -335,7 +335,7 @@ void insertarContadorDescendentemente (Nodo *&listaAOrdenar, void *contador){
         listaAOrdenar = nuevo_nodo;
     }else{
         //Ultimo nodo de la lista.
-        setNodoSiguiente(aux1,nuevo_nodo);
+        setNodoSiguiente(aux2,nuevo_nodo);
     }
     setNodoSiguiente(nuevo_nodo,aux1);
 }
@@ -428,12 +428,13 @@ Nodo* InicializarContadorDeVinos(Nodo *listaDeVinos){
     }
     //retorno una lista con todos los id de vinos y cantidades en cero.
     return listaNumeroVinos;
+
 }
 
 void rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,Nodo *listaDeVinos){
 
     //Inicializacion de variables.
-    Membresia* membresia;
+    Membresia* membresia = crearMembresiaVacia(membresia);
     Nodo *listaMembresiaAux = crearLista();
     Nodo *listarankingVinos = crearLista();
     Nodo *listaContadoraDeVinos = listaContabilizadoraDeVinos;
@@ -442,13 +443,15 @@ void rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,No
     Nodo *listaDeVinosAux = listaDeVinos;
     Contador* contadorAux = new Contador();
 
-    Contador* contador;
+    Contador* contador = crearContadorVacio(contador);
     int* vinos;
     int cantidadInicial;
     int cantidadAnterior;
-    Vino* vino = crearVinoVacio(vino);
+    Vino* vino;
+    vino = crearVinoVacio(vino);
     int posicion = 0;
     int posicionAux;
+
 
         //Recorre la lista de membresia
         while(listaDeMembresia != NULL){
@@ -466,9 +469,11 @@ void rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,No
         }
 
 
+        //Rompe aca
+
             while(listaContadoraDeVinos != NULL){
 
-                Contador* contador = (Contador*)getNodoDato(listaContadoraDeVinos);
+                contador = (Contador*)getNodoDato(listaContadoraDeVinos);
                 //Inserto los contadores en orden descendente, en listaCantidadDeVinosOrdenada.
                 insertarContadorDescendentemente(listaCantidadDeVinosOrdenada,contador);
                 listaContadoraDeVinos = getNodoSiguiente(listaContadoraDeVinos);
@@ -566,7 +571,6 @@ Nodo* cargarCatalogoDeClientes(Nodo *lista, string nombreFile){
     return lista;
 }
 
-//ACTUALIZACION DE GET Y SET HASTA ACA
 
 void mostrarListaDeClientes(Nodo *lista){
 
@@ -583,9 +587,9 @@ cout<<"|ID|"<<"NOMBRE Y APELLIDO|"<<"DIRECCION|"<<"EDAD|"<<endl;
 while(actual != NULL)
 
     {   //CASTEO EL DATO A TIPO CLIENTE, PARA OBTENER LA INFORMACION
-        cliente = (Cliente*)actual->dato;
+        cliente = (Cliente*)getNodoDato(actual);
         cout<<"|"<<getIdCliente(cliente)<<"|"<<getNombreYapellido(cliente)<<"|"<<getDireccion(cliente)<<"|"<<getEdad(cliente)<<"|"<<endl;
-        actual = actual->siguiente;
+        actual = getNodoSiguiente(actual);
     }
 
 cout<<endl;
@@ -599,14 +603,14 @@ Cliente* obtenerClientePorId(Nodo *listaDeClientes,int idCliente){
     bool encontrado = 0;
 
     while(listaAux != NULL && encontrado == 0){
-        cliente = (Cliente*)listaAux->dato;
+        cliente = (Cliente*)getNodoDato(listaAux);
         if(getIdCliente(cliente) == idCliente){
             encontrado = 1;
-            cliente=(Cliente*)listaAux->dato;
+            //cliente=(Cliente*)listaAux->dato;
             return cliente;
         }
 
-        listaAux = listaAux->siguiente;
+        listaAux = getNodoSiguiente(listaAux);
     }
 }
 
@@ -620,7 +624,7 @@ void rankingDeVarietales(Nodo *listaDeMembresia,Nodo *listaDeVinos, Nodo *listaD
     Nodo *listaCantidadDeVarietalesOrdenada = crearLista();
     Nodo *listaDeVarietales = crearLista();
     Vino* vino = crearVinoVacio(vino);
-    Contador* contador;
+    Contador* contador = crearContadorVacio(contador);
     ContadorVarietal* contadorVAUX=  new ContadorVarietal();
     ContadorVarietal* conta = new ContadorVarietal();
     int cantidadAnterior;
@@ -630,62 +634,60 @@ void rankingDeVarietales(Nodo *listaDeMembresia,Nodo *listaDeVinos, Nodo *listaD
 
     while(listaDeMembresia != NULL){
 
-        membresia = (Membresia*)listaDeMembresia->dato;
+        membresia = (Membresia*)getNodoDato(listaDeMembresia);
         cliente=obtenerClientePorId(listaDeClientes,getIdUsuario(membresia));
+        //Un puntero que devuelve la primera posicion del array.
+        int* parray = getArrayVinos(membresia);
 
         //Si el rango etario corresponde al ingresado por el usuario, se le suma uno a los vinos elejidos por el cliente.
         switch(rangoEtario){
 
         case 1:
-                if(cliente->edad<=30){
+                if(getEdad(cliente)<=30){
                     for(int i=0; i<6 ; i++){
-                     listaContadoraDeVinos = sumarUnoAlIdVino(listaContadoraDeVinos,membresia->vinos[i]);
+                     //(*parray) con esta instruccion estamos tomando el valor del puntero.
+                     listaContadoraDeVinos = sumarUnoAlIdVino(listaContadoraDeVinos,(*parray));
 
                     }
                 }
             break;
 
         case 2:
-                if(cliente->edad>=30&&cliente->edad<=50){
+                if(getEdad(cliente)>=30&&getEdad(cliente)<=50){
                     for(int i=0; i<6 ; i++){
-                     listaContadoraDeVinos = sumarUnoAlIdVino(listaContadoraDeVinos,membresia->vinos[i]);
+                     listaContadoraDeVinos = sumarUnoAlIdVino(listaContadoraDeVinos,(*parray));
                     }
                 }
             break;
 
         case 3:
-                if(cliente->edad>=50){
+                if(getEdad(cliente)>=50){
                     for(int i=0; i<6 ; i++){
-                     listaContadoraDeVinos = sumarUnoAlIdVino(listaContadoraDeVinos,membresia->vinos[i]);
+                     listaContadoraDeVinos = sumarUnoAlIdVino(listaContadoraDeVinos,(*parray));
                     }
                 }
             break;
         }
 
-        listaDeMembresia = listaDeMembresia->siguiente;
+        listaDeMembresia = getNodoSiguiente(listaDeMembresia);
     }
 
     //Recorremos la lista de contadores de vinos y los ordenamos por varietales
      while(listaContadoraDeVinos != NULL){
-                 Contador* contador = (Contador*)listaContadoraDeVinos->dato;
+                 Contador* contador = (Contador*)getNodoDato(listaContadoraDeVinos);
                  vino=obtenerNodoVino(listaDeVinos,getContadorIdVino(contador));
-                 //Chequeo de contador de vinos para los clientes menores de 30 años de edad --TEST--BORRAR--
-                 //cout<<"Cantidad: "<<contador->cantidad<<"Varietal: "<<vino->varietal<<endl;
-                 //------------------FIN TEST ------------------------------------------------
                  //Agrupo los vinos por varietal
                  listaDeVarietales=updateContadorDeVarietales(listaDeVarietales,getContadorCantidad(contador),getVarietal(vino));
                  listaContadoraDeVinos = listaContadoraDeVinos->siguiente;
+                 listaContadoraDeVinos = getNodoSiguiente(listaContadoraDeVinos);
             }
 
     while(listaDeVarietales != NULL){
 
-                    contadorVAUX=(ContadorVarietal*)listaDeVarietales->dato;
-                    //Chequeo de agrupacion de varietales -- TEST -- BORRAR --
-                    //cout<<contadorVAUX->varietal<<" "<<contadorVAUX->cantidad<<endl;
-                    //---------------------------FIN TEST ----------------------------
+                    contadorVAUX=(ContadorVarietal*)getNodoDato(listaDeVarietales);
                     //Ordeno los contadores de varietales en forma descendente de acuerdo a la cantidad.
                     insertarContadorVarietalDescendentemente(listaCantidadDeVarietalesOrdenada,contadorVAUX);
-                    listaDeVarietales = listaDeVarietales->siguiente;
+                    listaDeVarietales = getNodoSiguiente(listaDeVarietales);
                  }
 
 
@@ -705,11 +707,10 @@ void rankingDeVarietales(Nodo *listaDeMembresia,Nodo *listaDeVinos, Nodo *listaD
 
             //Recorro la lista contadores de varietales, ya ordenados de mayor a menor
             while(listaCantidadDeVarietalesOrdenada != NULL){
-                //Muestro la lista de contador
 
-               conta = (ContadorVarietal*)listaCantidadDeVarietalesOrdenada->dato;
-               //cout<<"Varietal: "<<conta->varietal<<"Cantidad: "<<conta->cantidad<<endl;
-               system("pause");
+                //Muestro la lista de contador
+               conta = (ContadorVarietal*)getNodoDato(listaCantidadDeVarietalesOrdenada);
+
                if((getContadorVarietalCantidad(conta) != cantidadAnterior)){
                     posicion = posicion +1;
                 }
@@ -717,7 +718,7 @@ void rankingDeVarietales(Nodo *listaDeMembresia,Nodo *listaDeVinos, Nodo *listaD
 
                 cout<<posicion<<"|"<<getContadorObtenerVarietal(conta)<<endl;
                 cantidadAnterior = getContadorVarietalCantidad(conta);
-                listaCantidadDeVarietalesOrdenada = listaCantidadDeVarietalesOrdenada->siguiente;
+                listaCantidadDeVarietalesOrdenada = getNodoSiguiente(listaCantidadDeVarietalesOrdenada);
 
             }
 
@@ -835,7 +836,7 @@ cout<<"|ID|"<<"MES SELECCION|"<<"ANIO DE LA SELECCION|"<<"VINO ELEGIDO|"<<endl;
 while(actual != NULL)
 
     {   //CASTEO EL DATO A TIPO MEMBRESIA, PARA OBTENER LA INFORMACION
-        membresia = (Membresia*)actual->dato;
+        membresia = (Membresia*)getNodoDato(actual);
         cout<<"\n |"<<getIdUsuario(membresia)<<"|"<<getMes(membresia)<<"|"<<getAnio(membresia)<<"|\n"<<endl;
 
          int* parray = getArrayVinos(membresia);
@@ -843,7 +844,7 @@ while(actual != NULL)
             cout<<" El vino es: "<<(*parray++)<<endl;
         }
 
-        actual = actual->siguiente;
+        actual = getNodoSiguiente(actual);
     }
 
 cout<<endl;
@@ -868,21 +869,19 @@ Nodo* sumarUnoAlaBodega(Nodo *&listaDeVinos,Nodo *&listaContadorBodegas,int idVi
 
     while (listaContadorBodega != NULL && encontrado == 0){
 
-
-        ContadorBodega* contadorBodega = (ContadorBodega*)listaContadorBodega->dato;
+        ContadorBodega* contadorBodega = (ContadorBodega*)getNodoDato(listaContadorBodega);
         //Se va sumando uno al contador de bodega
         if( getContadorBodega(contadorBodega) == getBodega(vino)){
-            contadorBodega = (ContadorBodega*)listaContadorBodega->dato;
+            //contadorBodega = (ContadorBodega*)listaContadorBodega->dato;
             cantidad = getContadorCantidad(contadorBodega) +1 ;
             setContadorCantidad(contadorBodega,cantidad);
             setContadorBodega(contadorBodega,getContadorBodega(contadorBodega));
             encontrado = 1;
-            nodo->dato = contadorBodega;
-            nodo->siguiente = listaDeVinosAux->siguiente;
+            setNodoDato(nodo,contadorBodega);
+            setNodoSiguiente(nodo,getNodoSiguiente(listaDeVinosAux));
             listaContadorBodega = nodo;
         }
-        listaContadorBodega = listaContadorBodega->siguiente;
-
+        listaContadorBodega = getNodoSiguiente(listaContadorBodega);
     }
     return listaContadorBodegas;
 }
@@ -892,8 +891,8 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos){
 
 
     //reservo un espacio en la memoria para el TDA de tipo vino
-    Vino* vino = new Vino();
-    ContadorBodega* numerobodega;
+    Vino* vino = crearVinoVacio(vino);
+    ContadorBodega* numerobodega = crearContadorVacioBodega(numerobodega);
     Nodo *listaNumeroBodegas = crearLista();
 
     int numero = mostrarBodegasNumero( listaDeVinos);
@@ -907,7 +906,7 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos){
             salida=false;
             contador=0;
            //el primer dato es un vino
-           vino = (Vino*)listaDeVinos->dato;
+           vino = (Vino*)getNodoDato(listaDeVinos);
 
 
            if(i==0){
@@ -947,13 +946,13 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos){
 
 
              // Recorre el siguiente nodo de la lista de vinos
-           listaDeVinos = listaDeVinos->siguiente;
+           listaDeVinos = getNodoSiguiente(listaDeVinos);
            i=i+1;
     }
     return listaNumeroBodegas;
 }
 
-// 2 PARTE DEL RANKING
+// 2 PARTE DEL RANKING DE BODEGAS
 
 void rankingDeBodegas(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos, Nodo *listaContabilizadoraDeBodegas, Nodo *listaDeVino){
 
@@ -966,9 +965,9 @@ void rankingDeBodegas(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,
     Nodo *listaCantidadDeBodegasOrdenada = crearLista(); // nose
     Nodo *nodoVino = new Nodo(); //nuevo nodo vino
     Nodo *listaDeVinosAux = listaDeVino; //lista aux de vinos
-    Contador* contadorAux; // contador auxiliar para contador
+    Contador* contadorAux = crearContadorVacio(contadorAux); // contador auxiliar para contador
 
-    ContadorBodega* contadorBodega;
+    ContadorBodega* contadorBodega = crearContadorVacioBodega(contadorBodega);
     int cantidadInicial;
     int cantidadAnterior;
     Vino* vino;
@@ -978,24 +977,19 @@ void rankingDeBodegas(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,
 
         //Recorre la lista de membresia
         while(listaDeMembresia != NULL){
-            membresiaAux = (Membresia*)listaDeMembresia->dato;
-            for(int i=0; i<6 ; i++){
+            membresiaAux = (Membresia*)getNodoDato(listaDeMembresia);
 
-                if(getAnio(membresiaAux) == 2021){
+            if(getAnio(membresiaAux) == 2021){
+                for(int i=0; i<6 ; i++){
                     //Si es el anio que estoy buscando, le sumo uno al contador de la bodega.
                      listaContadoraDeBodegas = sumarUnoAlaBodega(listaDeVinosAux ,listaContadoraDeBodegas,membresiaAux->vinos[i]);
                 }
-        }
+            }
 
-        listaDeMembresia = listaDeMembresia->siguiente;
-
-
-
-            //AGREGAR VALIDACION: RECORRER  LA LISTA CONTADORA DE VINOS,
-            //SI ESTAN TODOS LOS CONTADORES CON CANTIDAD 0, NO EXISTE EL ANIO INGRESADO
+        listaDeMembresia = getNodoSiguiente(listaDeMembresia);
 
 
-            //NO SE ESTA CARGANDO LA LISTA DE BODEGAS ORDENADA.
+            //NO SE ESTA CARGANDO LA LISTA DE BODEGAS ORDENADA.  --- CORREGIDO  ---
             while(listaContadoraDeBodegas != NULL){
 
                 ContadorBodega* contadorBodega = (ContadorBodega*)listaContadoraDeBodegas->dato;
@@ -1048,6 +1042,7 @@ void rankingDeBodegas(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,
 //-----------------------------------------------------------------------------------------
 
 // Cuenta los registros de los vinos
+
 int mostrarBodegasNumero(Nodo *lista){
 
     Vino* vino;
@@ -1062,13 +1057,14 @@ if(actual == NULL){
     cout<<"La lista esta vacia"<<endl;
 }
 //Generamos la cabecera de la tabla
-cout<<"BODEGA|"<<endl;
+// SE COMENTO PORQUE SE IMPRIMIA BODEGA EN LA PANTALLA PRINCIPAL DEL MAIN //
+//cout<<"BODEGA|"<<endl;
 while(actual != NULL)
 
     {
-        vino = (Vino*)actual->dato;
 
-        actual = actual->siguiente;
+        vino = (Vino*)getNodoDato(actual);
+        actual = getNodoSiguiente(actual);
         i = i+1;
     }
 
@@ -1095,13 +1091,15 @@ cout<<"----------Lista de todas las Bodegas--------------"<<endl;
 while(actual != NULL)
 
     {   //CASTEO EL DATO A TIPO CONTADOR, PARA OBTENER LA INFORMACION
-        contadorBodega = (ContadorBodega*)actual->dato;
+        contadorBodega = (ContadorBodega*)getNodoDato(actual);
 
         cout<<"|"<<getContadorBodega(contadorBodega)<<"|"<<endl;
-        actual = actual->siguiente;
+        actual = getNodoSiguiente(actual);
     }
 
 cout<<endl;
 
 }
+
+//ACTUALIZACION DE GET Y SET COMPLETAS DE LOS NODOS, FALTAN LAS CORRECIONES DE BODEGA.
 

@@ -29,9 +29,6 @@ int main()
     int opcion;
     int rangoEtario;
 
-    Cliente* cli = new Cliente();
-    //string atributo;
-
     do{
         cout<<"\t.:SISTEMA DE RANKINGS:."<<endl;
         cout<<"1. Ranking General de Vinos seleccionados por año"<<endl;
