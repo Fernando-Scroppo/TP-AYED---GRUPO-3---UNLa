@@ -16,16 +16,15 @@ string getContadorBodega(ContadorBodega *contadorBodega) {
 }
 
 
-int getContadorCantidad(ContadorBodega *contadorBodega) {
+int getContadorCantidadBodega(ContadorBodega *contadorBodega) {
     return contadorBodega->cantidad;
 }
 
 
-void setContadorCantidad(ContadorBodega *contadorBodega, int cantidad){
+void setContadorCantidadBodega(ContadorBodega *contadorBodega, int cantidad){
     contadorBodega->cantidad = cantidad;
 }
 
 void setContadorBodega(ContadorBodega *contadorBodega,string bodega){
     contadorBodega->bodega = bodega;
 }
-
