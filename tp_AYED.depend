@@ -136,7 +136,7 @@
 1635815275 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\contador.h
 	<sstream>
 
-1635891921 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.cpp
+1635903480 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.cpp
 	"lista.h"
 	"Vino.h"
 	"Cliente.h"
@@ -148,7 +148,7 @@
 	<fstream>
 	<iostream>
 
-1635890675 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.h
+1635902743 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\lista.h
 	<sstream>
 	"Vino.h"
 	"Cliente.h"
@@ -156,12 +156,13 @@
 1635006507 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\vino.h
 	<sstream>
 
-1635821218 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\main.cpp
+1635902819 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\main.cpp
 	<iostream>
 	"Vino.h"
 	"Cliente.h"
 	"lista.h"
 	"Membresia.h"
+	"Hora_Sistema.h"
 
 1635717537 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\membresia.h
 
@@ -209,7 +210,7 @@
 1635102607 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\utilidades.h
 	<sstream>
 
-1635096161 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\utilidades.cpp
+1635904277 source:c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\utilidades.cpp
 	"Utilidades.h"
 
 1635893926 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contadorvarietal.cpp
@@ -237,6 +238,10 @@
 	<sstream>
 
 1635894072 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\hora_sistema.h
+	<iostream>
+	<ctime>
+
+1635899200 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp ayed\tp-ayed---grupo-3---unla\hora_sistema.h
 	<iostream>
 	<ctime>
 

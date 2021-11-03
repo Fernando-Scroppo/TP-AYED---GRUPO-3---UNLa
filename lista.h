@@ -193,15 +193,14 @@ void insertarContadorDescendentemente (Nodo *&listaAOrdenar, void *contador);
 
 /*-----------------------------------------------------------------------------------------------*/
 /*
-  PRE : Las lista de membresia (creada y cargada), la lista contabilizadora de vinos (creada y cargada) , la lista de vinos (creada y cargada) y el anio tiene que estar previamente
-  ingresado por el usuario.
-  POST: Devuelve el ranking de vinos de forma descendente de acuerdo al anio ingresado por el usuario.
+  PRE : Las lista de membresia (creada y cargada) , la lista de vinos (creada y cargada).
+  POST: Devuelve el ranking de vinos de forma descendente correspondiente al anio 2021.
 [retorno de la funcion = No tiene retorno ]
 [nombre de la funcion = rankingDeVinos]
-[datos que necesita mi funcion = lista de Membresia, lista contabilizado de Vinos, Lista de vinos y el anio ingresado por el usuario])
+[datos que necesita mi funcion = lista de Membresia, Lista de vinos])
 */
 
-void rankingDeVinos(Nodo *listaDeMembresia, Nodo *listaContabilizadoraDeVinos,Nodo *listaDeVinos);
+void rankingDeVinos(Nodo *listaDeMembresia,Nodo *listaDeVinos);
 
 /*-----------------------------------------------------------------------------------------------*/
 
@@ -267,15 +266,19 @@ int mostrarBodegasNumero (Nodo *lista);
 
 
 /*
-[retorno de la funcion =  falta.
+PRE : Debe crearse y cargado la lista de membresia y la lista de vinos.
+POST: Ordena las bodegas de los vinos segun el ultimo anio 2021.
+[retorno de la funcion =  No tiene retorno.
 [nombre de la funcion = rankingDeBodegas]
-[datos que necesita mi funcion = no definido]) */
+[datos que necesita mi funcion =  la lista de membresia (creada y cargada) y la lista de vinos (creada y cargada)]) */
 
-void rankingDeBodegas(Nodo *listaDeMembresia,Nodo *listaContabilizadoraDeVinos, Nodo *listaContabilizadoraDeBodegas,Nodo *listaDeVinos);
+void rankingDeBodegas(Nodo *listaDeMembresia,Nodo *listaDeVino);
 
 
 
 /*
+PRE : Debe crearse y cargado la lista de vinos.
+POST: Inicializa los contadores en 0 para cada bodega existente.
 [retorno de la funcion =  Retorna la lista cargada con las bodegas.
 [nombre de la funcion = InicializarContadorDeBodegas]
 [datos que necesita mi funcion = listaDeVinos]) */

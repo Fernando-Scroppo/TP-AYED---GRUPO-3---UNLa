@@ -4,6 +4,8 @@
 #include "lista.h"
 #include "Membresia.h"
 #include "Hora_Sistema.h"
+#include <wchar.h>
+#include <locale.h>
 using namespace std;
 
 int main()
@@ -14,7 +16,11 @@ int main()
   Ejercicio: TRABAJO PRACTICO INTEGRADOR DE LA CARRERA
   IDE: CodeBlocks */
 
+    //UTILIDADES//
 
+    //Permite mostrar por consola los acentos.
+    setlocale(LC_ALL, "");
+    //Determino el color de la fuente del sistema
     system("color 0b");
     //Inicializo las listas
     Nodo *listaDeVinos = crearLista();
@@ -62,11 +68,11 @@ int main()
         switch(opcion){
 
         case 1:
-            rankingDeVinos(listaDeMembresia,listaContabilizadoraDeVinos,listaDeVinos);
+            rankingDeVinos(listaDeMembresia,listaDeVinos);
             break;
 
         case 2:
-            rankingDeBodegas(listaDeMembresia,listaContabilizadoraDeVinos,listaContabilizadoraDeBodegas,listaDeVinos);
+            rankingDeBodegas(listaDeMembresia,listaDeVinos);
             break;
 
         case 3:
