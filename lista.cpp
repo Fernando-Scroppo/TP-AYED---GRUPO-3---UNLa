@@ -528,7 +528,6 @@ Nodo* cargarCatalogoDeClientes(Nodo *lista, string nombreFile){
     string line;
     int contador = 0;
     string atributo;
-
     ifstream input_file(filename);
     if (!input_file.is_open()) {
         cerr << "No se puede leer el archivo "
@@ -929,7 +928,7 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos){
 
 
 
-            // (El array comienza en la segunda vuelta && mientras ARRAY < cantidad de registros && salida no sea verdad)
+            // (El array comienza en la segunda vuelta && ARRAY < cantidad de registros && salida no sea verdad)
            while ( (i>0) && (i<numero) && salida==false){
 
                 numerobodega = crearContadorBodega(numerobodega,getBodega(vino)); //creo un contador y su bodega
@@ -938,7 +937,7 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos){
                 for (int k=0 ;k<i+1; k++){ //repite  N veces ,segun lo que valga  i
                     if(bodegas[k-1]==bodegas[i]){ //compara que no se repita
 
-                        contador= contador+1; // si se repite incrementa contador
+                        contador= contador+1; // si se repite incrementa el contador
                         k=i+1;// finalizo el for
 
 

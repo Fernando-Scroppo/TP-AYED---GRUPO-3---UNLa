@@ -40,7 +40,7 @@
 
 1633732170 c:\users\fernando\desktop\algoritmo y estructura de datos (ayed)\tp_ayed\contador.h
 
-1635895078 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.cpp
+1635949971 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.cpp
 	"lista.h"
 	"Vino.h"
 	"Cliente.h"
@@ -51,8 +51,9 @@
 	"Utilidades.h"
 	<fstream>
 	<iostream>
+	<locale.h>
 
-1635893926 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.h
+1635941496 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\lista.h
 	<sstream>
 	"Vino.h"
 	"Cliente.h"
@@ -60,13 +61,14 @@
 1635893926 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\vino.h
 	<sstream>
 
-1635895410 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\main.cpp
+1635968054 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\main.cpp
 	<iostream>
 	"Vino.h"
 	"Cliente.h"
 	"lista.h"
 	"Membresia.h"
 	"Hora_Sistema.h"
+	<wchar.h>
 
 1635893926 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\vino.cpp
 	<iostream>
@@ -222,7 +224,7 @@
 1635893926 c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\utilidades.h
 	<sstream>
 
-1635893926 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\utilidades.cpp
+1635941496 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\utilidades.cpp
 	"Utilidades.h"
 
 1635893926 source:c:\users\geraldine\documents\github\tp-ayed---grupo-3---unla\contadorbodega.cpp
