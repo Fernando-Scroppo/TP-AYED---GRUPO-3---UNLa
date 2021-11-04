@@ -1014,22 +1014,20 @@ void rankingDeBodegas(Nodo *listaDeMembresia,Nodo *listaDeVino){
 
             cout<<"//-----------------------------------------------------------------------------------------------------//"<<endl;
             cout<<".::.RANKING DE BODEGAS CORRESPONDIENTE AL ANIO : "<<2021<<".::."<<endl;
-            cout<<"POSICION|"<<"BODEGA|"<<endl;
+            cout<<"|POSICION|   "<<"    BODEGA      |"<<"    CANTIDAD      |"<<endl;
 
             //Recorro la lista contadores de vino, ya ordenados de mayor a menor
             while(listaCantidadDeBodegasOrdenada != NULL){
 
                 //Muestro la lista de contador
                 contadorBodega = (ContadorBodega*)getNodoDato(listaCantidadDeBodegasOrdenada);
-                cout<<"LA BODEGA ES :"<<getContadorBodega(contadorBodega)<<"|CANTIDAD:"<<getContadorCantidadBodega(contadorBodega)<<endl;
-
 
                 if((getContadorCantidadBodega(contadorBodega) != cantidadAnterior)){
                     posicion = posicion +1;
                 }
 
 
-                cout<<posicion<<"|"<<endl;
+                cout<<"|"<<posicion<<"       |"<<""<<getContadorBodega(contadorBodega)<<"|      "<<getContadorCantidadBodega(contadorBodega)<<"          |"<<endl;
                 cantidadAnterior = getContadorCantidadBodega(contadorBodega);
                 listaCantidadDeBodegasOrdenada = getNodoSiguiente(listaCantidadDeBodegasOrdenada);
 
