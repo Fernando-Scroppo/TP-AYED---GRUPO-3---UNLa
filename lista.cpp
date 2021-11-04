@@ -480,7 +480,7 @@ void rankingDeVinos(Nodo *listaDeMembresia,Nodo *listaDeVinos){
 
             cout<<"//-----------------------------------------------------------------------------------------------------//"<<endl;
             cout<<".::.RANKING DE VINOS CORRESPONDIENTE AL ANIO 2021.::."<<endl;
-            cout<<"POSICION|ID|"<<"ETIQUETA|"<<"BODEGA|"<<"SEGMENTO DEL VINO|"<<"VARIETAL|"<<"ANIO DE COSECHA|"<<"TERROIR|"<<endl;
+            cout<<"P| ID  |"<<"      ETIQUETA     |"<<"       BODEGA      |"<<"SEG. VINO  |"<<"        VARIETAL       |"<<"ANIO|"<<"       TERROIR"<<endl;
 
             //Recorro la lista contadores de vino, ya ordenados de mayor a menor
             while(listaCantidadDeVinosOrdenada != NULL){
@@ -495,7 +495,8 @@ void rankingDeVinos(Nodo *listaDeMembresia,Nodo *listaDeVinos){
                  vino = obtenerNodoVino(listaDeVinosAux,contador->idVino);
 
                 cout<<posicion<<"|"<<getIdVino(vino)<<"|"<<getEtiqueta(vino)<<"|"<<getBodega(vino)<<"|"<<getSegmento(vino)<<"|"
-                <<getVarietal(vino)<<"|"<<getAnioCosecha(vino)<<"|"<<getTerroir(vino)<<"|"<<getContadorCantidad(contador)<<endl;
+                <<getVarietal(vino)<<"|"<<getAnioCosecha(vino)<<"|"<<getTerroir(vino)<<endl;
+
                 cantidadAnterior = getContadorCantidad(contador);
                 listaCantidadDeVinosOrdenada = getNodoSiguiente(listaCantidadDeVinosOrdenada);
 
@@ -528,7 +529,6 @@ Nodo* cargarCatalogoDeClientes(Nodo *lista, string nombreFile){
     string line;
     int contador = 0;
     string atributo;
-
     ifstream input_file(filename);
     if (!input_file.is_open()) {
         cerr << "No se puede leer el archivo "
@@ -708,7 +708,7 @@ void rankingDeVarietales(Nodo *listaDeMembresia,Nodo *listaDeVinos, Nodo *listaD
 
     cout<<"//-----------------------------------------------------------------------------------------------------//"<<endl;
             cout<<".::.RANKING DE VARIETALES CORRESPONDIENTES AL RANGO ETARIO "<<stringRango<<".::."<<endl;
-            cout<<"POSICION|"<<"VARIETAL"<<endl;
+            cout<<"P|"<<"    VARIETAL"<<endl;
 
             //Recorro la lista contadores de varietales, ya ordenados de mayor a menor
             while(listaCantidadDeVarietalesOrdenada != NULL){
@@ -929,7 +929,7 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos){
 
 
 
-            // (El array comienza en la segunda vuelta && mientras ARRAY < cantidad de registros && salida no sea verdad)
+            // (El array comienza en la segunda vuelta && ARRAY < cantidad de registros && salida no sea verdad)
            while ( (i>0) && (i<numero) && salida==false){
 
                 numerobodega = crearContadorBodega(numerobodega,getBodega(vino)); //creo un contador y su bodega
@@ -938,7 +938,7 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos){
                 for (int k=0 ;k<i+1; k++){ //repite  N veces ,segun lo que valga  i
                     if(bodegas[k-1]==bodegas[i]){ //compara que no se repita
 
-                        contador= contador+1; // si se repite incrementa contador
+                        contador= contador+1; // si se repite incrementa el contador
                         k=i+1;// finalizo el for
 
 

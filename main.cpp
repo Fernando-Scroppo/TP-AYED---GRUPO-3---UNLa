@@ -5,7 +5,6 @@
 #include "Membresia.h"
 #include "Hora_Sistema.h"
 #include <wchar.h>
-#include <locale.h>
 using namespace std;
 
 int main()
@@ -20,6 +19,7 @@ int main()
 
     //Permite mostrar por consola los acentos.
     setlocale(LC_ALL, "");
+
     //Determino el color de la fuente del sistema
     system("color 0b");
     //Inicializo las listas
@@ -95,6 +95,7 @@ int main()
                     cout << "2. Mostrar la lista de Clientes cargada" << endl;
                     cout << "3. Mostrar la lista de Membresia cargada" << endl;
                     cout<<  "4. Mostrar la lista de Bodegas cargada"<<endl;
+                    cout<<  "5. Volver al menu principal"<<endl;
                     cout << "=========================================================" << endl;
                     cout << "Elije una opcion: ";
 
@@ -112,30 +113,28 @@ int main()
 
                                 case '2':
                                     system("cls");
-                                    cout << "2. Mostrar la lista de Clientes cargada" << endl;
+
+                                    cout << "2. Mostrar la lista de Clientes cargada\n" << endl;
                                     mostrarListaDeClientes(listaDeClientes);
                                     system("pause");
                                     break;
 
                                 case '3':
                                     system("cls");
-                                    cout << "3. Mostrar la lista de Membresia cargada" << endl;
+                                    cout << "3. Mostrar la lista de Membresia cargada\n" << endl;
                                     mostrarListaDeMembresia(listaDeMembresia);
                                     system("pause");
                                     break;
                                 case '4':
                                     system("cls");
-                                    cout<<  "4. Mostrar la lista de Bodegas cargada"<<endl;
+                                    cout<<  "4. Mostrar la lista de Bodegas cargada\n"<<endl;
                                     mostrarListaDeLasBodegas(listaContabilizadoraDeBodegas);
                                     system("pause");
                                     break;
 
-                                default:
-                                    cout << "\n\nOPCION NO VALIDA" << endl;
-                                    break;
                             }
                             system("cls");
-                        } while (opcion != '4');
+                        } while (opcion != '5');
 
 
         }
