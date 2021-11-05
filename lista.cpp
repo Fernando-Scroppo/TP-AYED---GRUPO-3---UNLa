@@ -991,10 +991,11 @@ void rankingDeBodegas(Nodo *listaDeMembresia,Nodo *listaDeVino){
             membresiaAux = (Membresia*)getNodoDato(listaDeMembresia);
 
             if(getAnio(membresiaAux) == 2021){
-               // int* pArray = getArrayVinos(membresiaAux); no funciona
+
                 for(int i=0; i<6 ; i++){
+                    int* pArray= getArrayVinos(membresiaAux);
                     //Si es el anio que estoy buscando, le sumo uno al contador de la bodega.
-                     listaContadoraDeBodegas = sumarUnoAlaBodega(listaDeVinosAux ,listaContadoraDeBodegas,membresiaAux->vinos[i]);
+                     listaContadoraDeBodegas = sumarUnoAlaBodega(listaDeVinosAux ,listaContadoraDeBodegas,(pArray[i]));
                 }
             }
 

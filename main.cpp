@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 /*
-  Autores: Fernando Scroppo, Yago Rexad, Alan Bruoni, Erika Valdez.
+  Autores: Fernando Scroppo, Yago Rexach,Brian Luoni, Erika Valdez.
   Curso: Algoritmos & Estructura de Datos
   Ejercicio: TRABAJO PRACTICO INTEGRADOR DE LA CARRERA
   IDE: CodeBlocks */
