@@ -1,10 +1,15 @@
 #include "ContadorVarietal.h"
 
 
-ContadorVarietal* crearContador(ContadorVarietal *contador,string varietal){
+ContadorVarietal* crearContadorVarietal(ContadorVarietal *contador,string varietal){
     contador = new ContadorVarietal();
     contador->varietal = varietal;
     contador->cantidad = 0;
+}
+
+ContadorVarietal* crearContadorVarietalVacio(ContadorVarietal *contador) {
+    contador = new ContadorVarietal();
+    return contador;
 }
 
 string getContadorObtenerVarietal(ContadorVarietal *contador){

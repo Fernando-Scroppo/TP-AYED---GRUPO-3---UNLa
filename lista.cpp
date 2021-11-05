@@ -630,8 +630,8 @@ void rankingDeVarietales(Nodo *listaDeMembresia,Nodo *listaDeVinos, Nodo *listaD
     Nodo *listaDeVarietales = crearLista();
     Vino* vino = crearVinoVacio(vino);
     Contador* contador = crearContadorVacio(contador);
-    ContadorVarietal* contadorVAUX=  new ContadorVarietal();
-    ContadorVarietal* conta = new ContadorVarietal();
+    ContadorVarietal* contadorVAUX=  crearContadorVarietalVacio(contadorVAUX);
+    ContadorVarietal* conta = crearContadorVarietalVacio(conta);
     int cantidadAnterior;
     int posicion=0;
     string stringRango;

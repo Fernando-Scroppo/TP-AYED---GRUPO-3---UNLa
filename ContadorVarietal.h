@@ -20,7 +20,12 @@ struct ContadorVarietal{
 
 ContadorVarietal* crearContadorVarietal(ContadorVarietal *contador,string varietal);
 /*----------------------------------------------------------------------------*/
-
+/*
+  pre: el contador debe haberse creado.
+  post: reserva espacio de memoria y devuelve un puntero de tipo ContadorVarietal vacio.
+*/
+ContadorVarietal* crearContadorVarietalVacio(ContadorVarietal *contador);
+/*----------------------------------------------------------------------------*/
 /*
   pre: el contador debe haberse creado.
   post: Devuelve el Id del vino, que esta contabilizando.
