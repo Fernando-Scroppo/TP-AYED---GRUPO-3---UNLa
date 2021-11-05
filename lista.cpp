@@ -966,7 +966,7 @@ Nodo* InicializarContadorDeBodegas(Nodo *listaDeVinos){
 
 void rankingDeBodegas(Nodo *listaDeMembresia,Nodo *listaDeVino){
 
-    //Inicializacion de variables.
+   //Inicializacion de variables.
     Membresia* membresiaAux = crearMembresiaVacia(membresiaAux);
     Nodo *listaMembresiaAux = crearLista();
     Nodo *listarankingBodegas = crearLista();
