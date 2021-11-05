@@ -162,13 +162,13 @@ if(actual == NULL){
     cout<<"La lista esta vacia"<<endl;
 }
 //Generamos la cabecera de la tabla
-cout<<"|ID|"<<"ETIQUETA|"<<"BODEGA|"<<"SEGMENTO DEL VINO|"<<"VARIETAL|"<<"ANIO DE COSECHA|"<<"TERROIR|"<<endl;
+cout<<"P| ID  |"<<"      ETIQUETA     |"<<"       BODEGA      |"<<"SEG. VINO  |"<<"        VARIETAL       |"<<"ANIO|"<<"       TERROIR"<<endl;
 while(actual != NULL)
 
     {   //CASTEO EL DATO A TIPO VINO, PARA OBTENER LA INFORMACION
         vino = (Vino*) getNodoDato(actual);
 
-        cout<<"|"<<getIdVino(vino)<<"|"<<getEtiqueta(vino)<<"|"<<getBodega(vino)<<"|"<<getSegmento(vino)<<"|"<<getVarietal(vino)<<"|"<<getAnioCosecha(vino)<<"|"<<getTerroir(vino)<<"|"<<endl;
+        cout<<"|"<<getIdVino(vino)<<" |"<<getEtiqueta(vino)<<"|"<<getBodega(vino)<<"|"<<getSegmento(vino)<<"|"<<getVarietal(vino)<<"|"<<getAnioCosecha(vino)<<"|"<<getTerroir(vino)<<endl;
         actual = getNodoSiguiente(actual);
     }
 
@@ -588,12 +588,12 @@ if(actual == NULL){
     cout<<"La lista esta vacia"<<endl;
 }
 //Generamos la cabecera de la tabla
-cout<<"|ID|"<<"NOMBRE Y APELLIDO|"<<"DIRECCION|"<<"EDAD|"<<endl;
+cout<<"|  ID  |"<<"     NOMBRE Y APELLIDO        |"<<"                DIRECCION                              |"<<"EDAD|"<<endl;
 while(actual != NULL)
 
     {   //CASTEO EL DATO A TIPO CLIENTE, PARA OBTENER LA INFORMACION
         cliente = (Cliente*)getNodoDato(actual);
-        cout<<"|"<<getIdCliente(cliente)<<"|"<<getNombreYapellido(cliente)<<"|"<<getDireccion(cliente)<<"|"<<getEdad(cliente)<<"|"<<endl;
+        cout<<"|"<<getIdCliente(cliente)<<"  |"<<getNombreYapellido(cliente)<<"  |"<<getDireccion(cliente)<<"       |"<<getEdad(cliente)<<"|"<<endl;
         actual = getNodoSiguiente(actual);
     }
 
@@ -708,7 +708,7 @@ void rankingDeVarietales(Nodo *listaDeMembresia,Nodo *listaDeVinos, Nodo *listaD
 
     cout<<"//-----------------------------------------------------------------------------------------------------//"<<endl;
             cout<<".::.RANKING DE VARIETALES CORRESPONDIENTES AL RANGO ETARIO "<<stringRango<<".::."<<endl;
-            cout<<"P|"<<"    VARIETAL"<<endl;
+            cout<<"P|"<<"    VARIETAL           |"<<"CANTIDAD   "<<endl;
 
             //Recorro la lista contadores de varietales, ya ordenados de mayor a menor
             while(listaCantidadDeVarietalesOrdenada != NULL){
@@ -1014,22 +1014,20 @@ void rankingDeBodegas(Nodo *listaDeMembresia,Nodo *listaDeVino){
 
             cout<<"//-----------------------------------------------------------------------------------------------------//"<<endl;
             cout<<".::.RANKING DE BODEGAS CORRESPONDIENTE AL ANIO : "<<2021<<".::."<<endl;
-            cout<<"POSICION|"<<"BODEGA|"<<endl;
+            cout<<"|POSICION|   "<<"    BODEGA      |"<<"    CANTIDAD      |"<<endl;
 
             //Recorro la lista contadores de vino, ya ordenados de mayor a menor
             while(listaCantidadDeBodegasOrdenada != NULL){
 
                 //Muestro la lista de contador
                 contadorBodega = (ContadorBodega*)getNodoDato(listaCantidadDeBodegasOrdenada);
-                cout<<"LA BODEGA ES :"<<getContadorBodega(contadorBodega)<<"|CANTIDAD:"<<getContadorCantidadBodega(contadorBodega)<<endl;
-
 
                 if((getContadorCantidadBodega(contadorBodega) != cantidadAnterior)){
                     posicion = posicion +1;
                 }
 
 
-                cout<<posicion<<"|"<<endl;
+                cout<<"|"<<posicion<<"       |"<<""<<getContadorBodega(contadorBodega)<<"|      "<<getContadorCantidadBodega(contadorBodega)<<"          |"<<endl;
                 cantidadAnterior = getContadorCantidadBodega(contadorBodega);
                 listaCantidadDeBodegasOrdenada = getNodoSiguiente(listaCantidadDeBodegasOrdenada);
 
@@ -1091,19 +1089,19 @@ if(actual == NULL){
     cout<<"La lista esta vacia"<<endl;
 }
 
-
-cout<<"----------Lista de todas las Bodegas--------------"<<endl;
+cout<<" -------------------------------"<<endl;
+cout<<" |  Lista de todas las Bodegas |"<<endl;
 
 
 while(actual != NULL)
 
     {   //CASTEO EL DATO A TIPO CONTADOR, PARA OBTENER LA INFORMACION
         contadorBodega = (ContadorBodega*)getNodoDato(actual);
-        cout<<"|"<<getContadorBodega(contadorBodega)<<"|"<<endl;
+        cout<<" |"<<getContadorBodega(contadorBodega)<<"          |"<<endl;
         actual = getNodoSiguiente(actual);
     }
 
-cout<<endl;
+cout<<" -------------------------------"<<endl;
 
 }
 
