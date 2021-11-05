@@ -42,6 +42,7 @@
 		<Unit filename="ContadorBodega.h" />
 		<Unit filename="ContadorVarietal.cpp" />
 		<Unit filename="ContadorVarietal.h" />
+		<Unit filename="Hora_Sistema.cpp" />
 		<Unit filename="Hora_Sistema.h" />
 		<Unit filename="Membresia.cpp" />
 		<Unit filename="Membresia.h">
